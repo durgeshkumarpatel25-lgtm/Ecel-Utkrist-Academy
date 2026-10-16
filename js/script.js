@@ -1,6 +1,6 @@
 /**
- * Creative English Spoken Center — Ambikapur
- * Vanilla JavaScript Engine
+ * ECEL and Utkrist Computer Academy — Ambikapur
+ * Spoken English & Computer Academy Vanilla JavaScript Engine
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
   function openMobileMenu() {
-    mobileDrawer.classList.add("open");
-    mobileDrawerOverlay.classList.add("open");
+    if (mobileDrawer) mobileDrawer.classList.add("open");
+    if (mobileDrawerOverlay) mobileDrawerOverlay.classList.add("open");
     document.body.style.overflow = "hidden";
   }
 
   function closeMobileMenu() {
-    mobileDrawer.classList.remove("open");
-    mobileDrawerOverlay.classList.remove("open");
+    if (mobileDrawer) mobileDrawer.classList.remove("open");
+    if (mobileDrawerOverlay) mobileDrawerOverlay.classList.remove("open");
     document.body.style.overflow = "";
   }
 
@@ -43,10 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section[id]");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 30) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
+    if (header) {
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
     }
 
     // ScrollSpy
@@ -78,19 +80,24 @@ document.addEventListener("DOMContentLoaded", () => {
   window.openDemoModal = function(courseName) {
     if (courseName && modalCourseSelect) {
       for (let i = 0; i < modalCourseSelect.options.length; i++) {
-        if (modalCourseSelect.options[i].text.includes(courseName)) {
+        if (modalCourseSelect.options[i].text.toLowerCase().includes(courseName.toLowerCase()) ||
+            modalCourseSelect.options[i].value.toLowerCase().includes(courseName.toLowerCase())) {
           modalCourseSelect.selectedIndex = i;
           break;
         }
       }
     }
-    demoModal.classList.add("open");
-    document.body.style.overflow = "hidden";
+    if (demoModal) {
+      demoModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
   };
 
   window.closeDemoModal = function() {
-    demoModal.classList.remove("open");
-    document.body.style.overflow = "";
+    if (demoModal) {
+      demoModal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
   };
 
   openDemoButtons.forEach((btn) => {
@@ -152,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 10-digit Indian mobile validation
       const indianPhoneRegex = /^[6-9]\d{9}$/;
       if (!indianPhoneRegex.test(phone)) {
-        alert("Please enter a valid 10-digit Indian mobile number (e.g. 7354523597).");
+        alert("Please enter a valid 10-digit Indian mobile number (e.g. 8962469909).");
         return;
       }
 
@@ -197,28 +204,32 @@ document.addEventListener("DOMContentLoaded", () => {
               "Interview Prep & Group Discussion": "💼 (HR Questions & Mock GDs)",
               "Kids & School Students English": "🎒 (School Recitation & Confidence)",
               "Competitive Exam English": "📚 (Grammar Rules & Comprehension)",
-              "Professional & Business English": "🏢 (Corporate Emails & Meetings)"
+              "Professional & Business English": "🏢 (Corporate Emails & Meetings)",
+              "DCA (Diploma in Computer Application)": "💻 (DCA - 1 Year Diploma)",
+              "PGDCA (Post Graduate Diploma in Computer Application)": "🎓 (PGDCA - Post Graduate Diploma)",
+              "Basic Computer Course (BCC)": "🖥️ (Basic Computer, Typing & MS Office)",
+              "Tally Prime with GST & Accounting": "📊 (Tally Prime, GST, Invoicing & Payroll)"
             };
 
             const courseBadge = courseEmojis[course] || "📖";
 
             const richEmojiMessage = 
-              `👋 *नमस्ते Sir / Team Creative English!*\n\n` +
+              `👋 *नमस्ते Sir / Team ECEL & Utkrist Computer Academy!*\n\n` +
               `🎯 *New Free Demo Class Registration*\n` +
               `━━━━━━━━━━━━━━━━━━━━━━\n` +
               `👤 *Student Name:* ${fullName}\n` +
               `📱 *Mobile Number:* +91 ${phone}\n` +
               `📚 *Course Interested:* ${course}\n` +
               `   ↳ ${courseBadge}\n` +
-              `📊 *Current English Level:* ${level} 📈\n` +
+              `📊 *Current Level:* ${level} 📈\n` +
               `⏰ *Preferred Batch Time:* ${time} ⏳\n` +
-              (message ? `💬 *Student Goal / Note:* "${message}" 🚀\n` : `💬 *Goal:* To speak English with 100% confidence! 🚀\n`) +
-              `📍 *Preferred Center:* Banaras Road, near Renuka Girls Hostel, Ambikapur (Gandhi Nagar)\n` +
+              (message ? `💬 *Student Goal / Note:* "${message}" 🚀\n` : `💬 *Goal:* Learn Spoken English & Computer Skills with Confidence! 🚀\n`) +
+              `📍 *Campus:* Banaras Road, Near Mishra Sweets, RG Tower, Ambikapur (CG) 497001\n` +
               `━━━━━━━━━━━━━━━━━━━━━━\n` +
               `🙏 *Please confirm my free demo seat & timing!* ✨🌟`;
 
             const encodedMsg = encodeURIComponent(richEmojiMessage);
-            whatsappConfirmBtn.setAttribute("href", `https://wa.me/917354523597?text=${encodedMsg}`);
+            whatsappConfirmBtn.setAttribute("href", `https://wa.me/918962469909?text=${encodedMsg}`);
           }
         }
 
@@ -445,17 +456,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (waActionEl) {
         const richMsg = 
-          `👋 *नमस्ते Deepak Sir / Team Creative English!*\n\n` +
+          `👋 *नमस्ते Sir / Team ECEL & Utkrist Computer Academy!*\n\n` +
           `🎯 *I completed the English Hesitation Test on your website!*\n` +
           `━━━━━━━━━━━━━━━━━━━━━━\n` +
           `📊 *My Test Result:* ${headline}\n` +
           `💡 *Diagnosis:* "${diagnosis}"\n` +
           `📚 *Recommended Course:* ${recommendedCourse} 🚀\n` +
-          `📍 *Center:* Banaras Road, near Renuka Girls Hostel, Ambikapur\n` +
+          `📍 *Campus:* Banaras Road, Near Mishra Sweets, RG Tower, Ambikapur (CG)\n` +
           `━━━━━━━━━━━━━━━━━━━━━━\n` +
           `🙏 *Please confirm when I can attend my Free 1-on-1 Hesitation Diagnosis Session!* ✨🌟`;
 
-        waActionEl.setAttribute("href", `https://wa.me/917354523597?text=${encodeURIComponent(richMsg)}`);
+        waActionEl.setAttribute("href", `https://wa.me/918962469909?text=${encodeURIComponent(richMsg)}`);
       }
     }
   };
@@ -497,5 +508,71 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fallback if IntersectionObserver is not supported
     revealElements.forEach((el) => el.classList.add("revealed"));
   }
-});
 
+  // ===========================================================================
+  // 11. Image Lightbox System (Optional Click-to-Zoom)
+  // ===========================================================================
+  const bannerLightbox = document.getElementById("bannerLightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxCloseBtn = document.getElementById("lightboxCloseBtn");
+
+  window.openBannerLightbox = function(imageSrc) {
+    if (bannerLightbox && lightboxImg) {
+      lightboxImg.src = imageSrc;
+      bannerLightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  window.closeBannerLightbox = function() {
+    if (bannerLightbox) {
+      bannerLightbox.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  };
+
+  if (lightboxCloseBtn) {
+    lightboxCloseBtn.addEventListener("click", window.closeBannerLightbox);
+  }
+
+  if (bannerLightbox) {
+    bannerLightbox.addEventListener("click", (e) => {
+      if (e.target === bannerLightbox) {
+        window.closeBannerLightbox();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && bannerLightbox && bannerLightbox.classList.contains("open")) {
+      window.closeBannerLightbox();
+    }
+  });
+
+  // ===========================================================================
+  // 12. Course Category Filter Bar (All, Spoken English, Utkrist Computer Academy)
+  // ===========================================================================
+  const courseFilterBtns = document.querySelectorAll(".course-filter-btn");
+  const allCourseCards = document.querySelectorAll(".course-card[data-category]");
+
+  courseFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filterValue = btn.getAttribute("data-filter");
+
+      // Update active button
+      courseFilterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Show/Hide Course Cards
+      allCourseCards.forEach((card) => {
+        const cardCategory = card.getAttribute("data-category");
+        if (filterValue === "all" || cardCategory === filterValue) {
+          card.style.display = "flex";
+          card.classList.add("revealed");
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+});
