@@ -993,26 +993,108 @@ svg {
   text-underline-offset: 4px;
 }
 
+/* Base Hindi Subtext */
 .hindi-subtext {
-  display: block;
-  width: 100%;
-  max-width: 600px;
+  display: inline-block;
+  max-width: 650px;
   padding: 0.65rem 1rem;
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.35);
   border-radius: var(--radius-md);
-  color: #fef08a;
   font-weight: 600;
   font-size: 0.9rem;
   line-height: 1.55;
+}
+
+/* 1. Hero Section (Dark Theme) */
+.hero-content .hindi-subtext,
+.hero-section .hindi-subtext {
+  width: 100%;
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fef08a;
   align-self: flex-start;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* 2. Section Headers (Light Backgrounds) */
+.section-header .hindi-subtext {
+  margin: 0.85rem auto 1.15rem;
+  text-align: center;
+  text-shadow: none;
+}
+
+/* Wing 1 (ECEL English Learning Centre) Subtext */
+.wing-english-section .hindi-subtext,
+.hindi-subtext-ecel {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1.5px solid #f59e0b;
+  color: #78350f; /* High-contrast rich warm amber/bronze */
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 0.65rem 1.35rem;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.15);
+}
+
+/* Wing 2 (Utkrist Computer Academy) - Eye-Catching University Recognized Banner */
+.wing-computer-section .hindi-subtext,
+.hindi-subtext-uca {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 55%, #e0f2fe 100%);
+  border: 2px solid #0284c7;
+  border-radius: 50px;
+  padding: 0.55rem 1.25rem;
+  color: #0f172a; /* Deep slate for high-contrast clarity */
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.5;
+  box-shadow: 0 6px 22px rgba(2, 132, 199, 0.18), 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hindi-subtext-uca:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(2, 132, 199, 0.25);
+}
+
+.hindi-subtext-uca .uca-uni-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  color: #ffffff;
+  padding: 0.25rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+  white-space: nowrap;
+}
+
+.hindi-subtext-uca .uca-subtext-body {
+  color: #0c4a6e;
+  font-weight: 700;
+}
+
+.hindi-subtext-uca .uca-highlight-course {
+  color: #b45309;
+  font-weight: 800;
 }
 
 @media (min-width: 640px) {
   .hindi-subtext {
     font-size: 0.95rem;
-    padding: 0.75rem 1.15rem;
+  }
+  .hindi-subtext-uca {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.98rem;
+  }
+  .hindi-subtext-uca .uca-uni-badge {
+    font-size: 0.92rem;
+    padding: 0.28rem 0.85rem;
   }
 }
 
