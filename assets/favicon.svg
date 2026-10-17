@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Gold Gradient for Star and Accent Rings -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <!-- Deep Royal Navy Gradient -->
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2b6e" />
+      <stop offset="100%" stop-color="#061233" />
+    </linearGradient>
+    
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#061233" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Circular Outer Badges -->
+  <circle cx="256" cy="256" r="248" fill="#ffffff" stroke="#0a1d4a" stroke-width="16" />
+  <circle cx="256" cy="256" r="236" fill="none" stroke="url(#goldGrad)" stroke-width="8" />
+
+  <!-- Inner Soft Accent Ring -->
+  <circle cx="256" cy="256" r="226" fill="#ffffff" />
+
+  <!-- ECEL Person Reaching for Star -->
+  <g id="reaching-person" filter="url(#dropShadow)">
+    <!-- Head -->
+    <circle cx="120" cy="155" r="26" fill="url(#navyGrad)" />
+    <!-- Body / Torso / Leg curve reaching up -->
+    <path d="M 68 206 C 88 190 120 188 140 216 C 146 226 150 248 152 278 L 152 284 C 144 266 128 244 108 238 C 88 232 76 250 68 288 C 76 248 70 220 68 206 Z" fill="url(#navyGrad)" />
+    <!-- Arm extending up towards the golden star -->
+    <path d="M 142 208 C 146 180 152 144 162 108 L 168 110 C 158 146 152 184 148 214 Z" fill="url(#navyGrad)" />
+  </g>
+
+  <!-- Golden Star -->
+  <!-- Star centered around (165, 88) -->
+  <polygon points="165,58 174,80 197,81 179,95 185,117 165,103 145,117 151,95 133,81 156,80" fill="url(#goldGrad)" stroke="#b45309" stroke-width="1.5" />
+
+  <!-- Vertical Divider Bar -->
+  <rect x="184" y="140" width="4.5" height="150" fill="url(#navyGrad)" rx="2" />
+
+  <!-- BOLD ECEL TYPOGRAPHY -->
+  <g id="ecel-text" fill="url(#navyGrad)">
+    <!-- E -->
+    <path d="M 204 150 H 262 V 176 H 230 V 204 H 258 V 228 H 230 V 264 H 264 V 290 H 204 Z" />
+    
+    <!-- C -->
+    <path d="M 334 176 C 326 158 308 148 288 148 C 262 148 244 168 244 220 C 244 272 262 292 288 292 C 308 292 326 282 334 264 L 334 238 C 324 250 310 262 290 262 C 274 262 268 248 268 220 C 268 192 274 178 290 178 C 310 178 324 190 334 202 Z" transform="translate(38, 0)" />
+    
+    <!-- E -->
+    <path d="M 358 150 H 416 V 176 H 384 V 204 H 412 V 228 H 384 V 264 H 418 V 290 H 358 Z" transform="translate(30, 0)" />
+    
+    <!-- L -->
+    <path d="M 434 150 H 458 V 264 H 488 V 290 H 434 Z" transform="translate(18, 0)" />
+
+    <!-- Registered Symbol ® -->
+    <circle cx="488" cy="154" r="12" fill="none" stroke="url(#navyGrad)" stroke-width="2.5" />
+    <text x="488" y="159" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#navyGrad)" text-anchor="middle">R</text>
+  </g>
+
+  <!-- Excellence Subtext -->
+  <text x="325" y="325" font-family="'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="800" fill="#0f2b6e" text-anchor="middle" letter-spacing="0.5">Excellence in Communication</text>
+  <text x="325" y="348" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0f2b6e" text-anchor="middle" letter-spacing="0.5">and English Language</text>
+
+  <!-- Learn Practice Grow Ribbon / Divider -->
+  <g transform="translate(0, 360)">
+    <line x1="70" y1="12" x2="140" y2="12" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" />
+    <circle cx="160" cy="12" r="4" fill="url(#goldGrad)" />
+    <text x="256" y="19" font-family="'Segoe UI', Georgia, serif" font-size="24" font-style="italic" font-weight="bold" fill="#0f2b6e" text-anchor="middle">Learn • Practice • Grow</text>
+    <circle cx="352" cy="12" r="4" fill="url(#goldGrad)" />
+    <line x1="372" y1="12" x2="442" y2="12" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Open Book Emblem at Bottom -->
+  <g id="open-book" transform="translate(166, 400)">
+    <!-- Left Pages -->
+    <path d="M 90 45 C 55 25 15 32 0 42 C 0 35 15 15 55 10 C 70 8 85 18 90 24 Z" fill="url(#goldGrad)" />
+    <path d="M 90 40 C 55 20 15 27 2 35 C 5 20 25 6 60 2 C 75 0 85 10 90 18 Z" fill="url(#navyGrad)" />
+    <path d="M 90 32 C 60 12 25 18 8 26 C 15 12 35 2 68 -2 C 80 -3 88 5 90 12 Z" fill="url(#navyGrad)" />
+
+    <!-- Right Pages -->
+    <path d="M 90 45 C 125 25 165 32 180 42 C 180 35 165 15 125 10 C 110 8 95 18 90 24 Z" fill="url(#goldGrad)" />
+    <path d="M 90 40 C 125 20 165 27 178 35 C 175 20 155 6 120 2 C 105 0 95 10 90 18 Z" fill="url(#navyGrad)" />
+    <path d="M 90 32 C 120 12 155 18 172 26 C 165 12 145 2 112 -2 C 100 -3 92 5 90 12 Z" fill="url(#navyGrad)" />
+  </g>
+</svg>

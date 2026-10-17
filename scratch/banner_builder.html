@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Banner Composer Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1e293b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    #canvas-container {
+      position: relative;
+      width: 1376px;
+      height: 768px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      background: #ffffff;
+      overflow: hidden;
+    }
+    #base-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1376px;
+      height: 768px;
+    }
+    /* Mask to completely erase old "U" logo */
+    .u-logo-mask {
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      width: 215px;
+      height: 250px;
+      background: #ffffff;
+      z-index: 5;
+    }
+    /* Logo Overlay */
+    .logo-patch {
+      position: absolute;
+      top: 25px;
+      left: 45px;
+      width: 190px;
+      height: 190px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 8px 16px rgba(15, 23, 42, 0.2));
+    }
+    .logo-patch img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    
+    /* Bottom Address Patch */
+    .address-patch {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 1376px;
+      height: 122px;
+      background: linear-gradient(135deg, #071536 0%, #0c2357 55%, #0f2c6e 100%);
+      border-top: 4px solid #f59e0b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 45px;
+      z-index: 20;
+      color: #ffffff;
+      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.25);
+    }
+    .contact-side {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .address-side {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 760px;
+    }
+    .icon-circle {
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45);
+      flex-shrink: 0;
+      border: 2px solid #ffffff;
+    }
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .pill-label {
+      background: #f59e0b;
+      color: #071536;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2px 12px;
+      border-radius: 20px;
+      align-self: flex-start;
+    }
+    .phone-numbers {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+    .address-text {
+      font-size: 17.5px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.35;
+    }
+
+    /* Clean Up Course Descriptions Patch - covers precisely the garbled subtitle */
+    .course-cleanup-tally {
+      position: absolute;
+      top: 502px;
+      left: 104px;
+      width: 140px;
+      height: 48px;
+      background: #ffffff;
+      z-index: 10;
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+      line-height: 1.3;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+    .course-cleanup-office {
+      position: absolute;
+      top: 502px;
+      left: 304px;
+      width: 140px;
+      height: 48px;
+      background: #ffffff;
+      z-index: 10;
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+      line-height: 1.3;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+    .course-cleanup-excel {
+      position: absolute;
+      top: 614px;
+      left: 104px;
+      width: 140px;
+      height: 48px;
+      background: #ffffff;
+      z-index: 10;
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+      line-height: 1.3;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+    .course-cleanup-bcc {
+      position: absolute;
+      top: 614px;
+      left: 304px;
+      width: 155px;
+      height: 48px;
+      background: #ffffff;
+      z-index: 10;
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+      line-height: 1.3;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container">
+    <img id="base-img" src="../assets/banner3.png" alt="Base Banner" />
+    
+    <!-- White mask to erase old U logo completely -->
+    <div class="u-logo-mask"></div>
+
+    <!-- Replacement Official UCA Logo -->
+    <div class="logo-patch">
+      <img src="../assets/logo_uca_color.jpg" alt="UCA Logo" />
+    </div>
+
+    <!-- Clean Professional Course Descriptions -->
+    <div class="course-cleanup-tally">
+      GST, Billing, Inventory &amp; Live Accounts
+    </div>
+    <div class="course-cleanup-excel">
+      Formulas, Pivot Table &amp; MIS Reports
+    </div>
+    <div class="course-cleanup-office">
+      MS Word, Excel, PPT &amp; Internet Suite
+    </div>
+    <div class="course-cleanup-bcc">
+      Fundamental Skills, Typing &amp; Internet
+    </div>
+
+    <!-- Official Professional Address & Contacts Bar -->
+    <div class="address-patch">
+      <div class="contact-side">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="#071536">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+          </svg>
+        </div>
+        <div class="text-block">
+          <div class="pill-label">Contact Us</div>
+          <div class="phone-numbers">+91 89624 69909 &nbsp;|&nbsp; +91 91657 61919</div>
+        </div>
+      </div>
+
+      <div class="address-side">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#071536" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="text-block">
+          <div class="pill-label">Our Address</div>
+          <div class="address-text">Banaras Road, Near Mishra Sweets, RG Tower, Ambikapur, Surguja, Chhattisgarh - 497001</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

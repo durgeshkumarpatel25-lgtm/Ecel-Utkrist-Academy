@@ -2,7 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" id="viewportMeta" content="width=980, initial-scale=0.42, maximum-scale=5.0, user-scalable=yes" />
+  <script>
+    (function () {
+      function applyDesktopModeOnMobile() {
+        var screenW = window.screen.width;
+        var screenH = window.screen.height;
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                       ('ontouchstart' in window && screenW < 1024) ||
+                       (screenW < 980);
+        var meta = document.getElementById('viewportMeta') || document.querySelector('meta[name="viewport"]');
+        if (!meta) return;
+
+        if (isMobile && screenW < 980) {
+          var targetWidth = 980;
+          // Calculate scale based on current orientation
+          var isLandscape = window.innerWidth > window.innerHeight;
+          var effectiveW = isLandscape ? Math.max(screenW, screenH) : Math.min(screenW, screenH);
+          if (!effectiveW || effectiveW <= 0) effectiveW = screenW;
+          var scale = (effectiveW / targetWidth).toFixed(4);
+          meta.setAttribute('content', 'width=' + targetWidth + ', initial-scale=' + scale + ', maximum-scale=5.0, user-scalable=yes');
+        } else if (!isMobile && screenW >= 980) {
+          // Standard desktop / laptop display
+          meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0');
+        }
+      }
+      applyDesktopModeOnMobile();
+      window.addEventListener('resize', applyDesktopModeOnMobile);
+      window.addEventListener('orientationchange', applyDesktopModeOnMobile);
+    })();
+  </script>
   <title>ECEL English Learning Centre &amp; Utkrist Computer Academy | Spoken English, DCA &amp; PGDCA in Ambikapur</title>
   <meta name="description" content="ECEL English Learning Centre (Spoken English, Public Speaking &amp; Fluency) &amp; Utkrist Computer Academy (Govt Recognized DCA, PGDCA, Basic Computer &amp; Tally Prime) at RG Tower, Banaras Road, Ambikapur, Chhattisgarh. Call: +91 89624 69909, +91 91657 61919." />
   <meta name="keywords" content="ecel english learning centre, ecel english learning centre ambikapur, utkrist computer academy, utkrist computer academy ambikapur, spoken english classes in ambikapur, best spoken english coaching ambikapur, english speaking institute in ambikapur, english coaching in ambikapur chhattisgarh, spoken english banaras road ambikapur, english coaching near mishra sweets ambikapur, rajesh sir english coaching ambikapur, deepak sir english spoken ambikapur, hindi to english speaking classes ambikapur, dca course in ambikapur, pgdca admission ambikapur, dca computer course surguja, pgdca university diploma ambikapur, government recognized computer diploma ambikapur, best computer institute in ambikapur surguja, basic computer course ambikapur, computer coaching rg tower ambikapur, tally prime with gst ambikapur, accounting tally course banaras road, hindi english typing course ambikapur, kruti dev typing coaching ambikapur, cg vyapam computer diploma ambikapur, patwari computer certificate coaching ambikapur, hostel warden computer diploma chhattisgarh, public speaking classes in ambikapur, personality development coaching ambikapur, podium drills english speaking ambikapur, group discussion interview preparation surguja, kids spoken english coaching ambikapur, competitive exam english grammar ambikapur, free demo spoken english class ambikapur, spoken english fees in ambikapur, computer training institute near me ambikapur, english coaching center near me ambikapur, ms office excel powerpoint training ambikapur, top educational institute in surguja chhattisgarh" />
