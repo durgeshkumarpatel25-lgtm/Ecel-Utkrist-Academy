@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Canvas Banner Exporter & Inspector</title>
+  <title>Precision Banner Composer</title>
   <style>
     body {
       background: #0b1120;
@@ -16,20 +16,18 @@
     #preview-canvas {
       box-shadow: 0 10px 40px rgba(0,0,0,0.7);
       background: #ffffff;
-      max-width: 100%;
-      height: auto;
       border-radius: 8px;
     }
     .info {
       margin-top: 15px;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #38bdf8;
     }
   </style>
 </head>
 <body>
-  <h1>Official HD Banner Composer (1376 x 768)</h1>
+  <h1>Rendering Precision Banner (1376 x 768)</h1>
   <canvas id="preview-canvas" width="1376" height="768"></canvas>
   <div class="info" id="status">Initializing...</div>
 
@@ -48,158 +46,83 @@
       });
     }
 
-    async function composeAndExport() {
+    async function buildBanner() {
       try {
         statusEl.textContent = 'Loading source images...';
-        const [baseImg, logoColorImg, logoPng] = await Promise.all([
+        const [baseImg, logoPng] = await Promise.all([
           loadImage('../assets/banner3.png'),
-          loadImage('../assets/logo_uca_color.jpg'),
           loadImage('../assets/logo2.png')
         ]);
 
-        // 1. Draw base banner
+        // 1. Draw pristine original base image
         ctx.drawImage(baseImg, 0, 0, 1376, 768);
 
-        // 2. Erase the old "U" logo completely and create a luxury emblem base
-        // Center of the new logo will be at (142, 142)
-        const logoCenterX = 142;
-        const logoCenterY = 144;
-        const badgeRadius = 104;
-
-        // Erase any remnants behind the badge
+        // 2. Erase the old "U" logo (x: 82 to 242, y: 35 to 220)
+        // Does NOT touch DIPLOMA COURSES which is at y: 250!
         ctx.save();
         ctx.fillStyle = '#ffffff';
-        ctx.fillRect(40, 25, 205, 250);
+        ctx.fillRect(80, 32, 162, 190);
+        ctx.restore();
 
-        // Draw luxury circular badge base with subtle shadow and gold rim
-        ctx.shadowColor = 'rgba(15, 23, 42, 0.22)';
-        ctx.shadowBlur = 18;
+        // 3. Draw the official UCA Emblem Logo (logo2.png)
+        // Center: cx = 158, cy = 125
+        const targetW = 164;
+        const targetH = Math.round(targetW * (468 / 533)); // ~144px
+        const logoX = 158 - targetW / 2;
+        const logoY = 125 - targetH / 2;
+
+        ctx.save();
+        ctx.shadowColor = 'rgba(15, 23, 42, 0.18)';
+        ctx.shadowBlur = 10;
         ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 6;
-
-        ctx.beginPath();
-        ctx.arc(logoCenterX, logoCenterY, badgeRadius, 0, Math.PI * 2);
-        ctx.fillStyle = '#ffffff';
-        ctx.fill();
-
-        ctx.strokeStyle = '#f59e0b';
-        ctx.lineWidth = 3.5;
-        ctx.stroke();
+        ctx.shadowOffsetY = 3;
+        ctx.drawImage(logoPng, logoX, logoY, targetW, targetH);
         ctx.restore();
 
-        // Inner soft decorative ring
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(logoCenterX, logoCenterY, badgeRadius - 5, 0, Math.PI * 2);
-        ctx.strokeStyle = '#0284c7';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-        ctx.restore();
-
-        // Draw the official UCA Emblem (using logo2.png or clipped logo_uca_color)
-        // logo2.png is already a transparent PNG with the official UCA badge & ribbon!
-        ctx.save();
-        const logoW = 186;
-        const logoH = Math.round(logoW * (468 / 533)); // ~163px
-        ctx.drawImage(logoPng, logoCenterX - logoW / 2, logoCenterY - logoH / 2, logoW, logoH);
-        ctx.restore();
-
-        // 3. Clean up the 4 Professional Certifications area cleanly
-        // Wipe the cards area with pure white matching the original background
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(36, 452, 530, 155);
-
-        // Redraw the 4 Professional Certification Cards with ultra-crisp typography & icons
-        const cardDefs = [
-          // Row 1
+        // 4. Clean up the 4 Professional Certification Subtitles
+        const cleanups = [
           {
-            iconType: 'tally',
-            x: 42, y: 456,
-            title: 'Tally Prime',
-            desc1: 'GST, Billing, Inventory',
-            desc2: '& Accounting with Real Projects'
+            box: { x: 96, y: 520, w: 146, h: 36 },
+            line1: 'GST, Billing, Inventory',
+            line2: '& Real Accounting'
           },
           {
-            iconType: 'office',
-            x: 304, y: 456,
-            title: 'MS Office',
-            desc1: 'MS Word, Excel, PPT,',
-            desc2: 'Outlook & Internet Suite'
-          },
-          // Row 2
-          {
-            iconType: 'excel',
-            x: 42, y: 536,
-            title: 'Advance Excel',
-            desc1: 'Formulas, Pivot Tables,',
-            desc2: 'VLOOKUP & MIS Reports'
+            box: { x: 298, y: 520, w: 148, h: 36 },
+            line1: 'MS Word, Excel, PPT',
+            line2: '& Internet Suite'
           },
           {
-            iconType: 'bcc',
-            x: 304, y: 536,
-            title: 'Basic Computer',
-            desc1: 'Fundamental Digital Skills,',
-            desc2: 'Hindi/Eng Typing & Internet'
+            box: { x: 96, y: 616, w: 146, h: 36 },
+            line1: 'Formulas, Pivot Table',
+            line2: '& MIS Reports'
+          },
+          {
+            box: { x: 298, y: 616, w: 168, h: 36 },
+            line1: 'Fundamental Skills,',
+            line2: 'Typing & Office PC'
           }
         ];
 
-        function drawCardIcon(type, cx, cy) {
-          const r = 24;
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(cx, cy, r, 0, Math.PI * 2);
-          if (type === 'tally') ctx.fillStyle = '#0f2357';
-          else if (type === 'office') ctx.fillStyle = '#c2410c';
-          else if (type === 'excel') ctx.fillStyle = '#15803d';
-          else if (type === 'bcc') ctx.fillStyle = '#0284c7';
-          ctx.fill();
-
-          // Icon Glyph / Symbol
+        cleanups.forEach(item => {
+          // Erase old garbled text with pure white
           ctx.fillStyle = '#ffffff';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.font = 'bold 20px sans-serif';
-          if (type === 'tally') {
-            ctx.font = '900 15px "Segoe UI", Arial, sans-serif';
-            ctx.fillText('Tally', cx, cy);
-          } else if (type === 'office') {
-            ctx.font = 'bold 21px sans-serif';
-            ctx.fillText('📊', cx, cy);
-          } else if (type === 'excel') {
-            ctx.font = '900 19px "Segoe UI", Arial, sans-serif';
-            ctx.fillText('X', cx, cy);
-          } else if (type === 'bcc') {
-            ctx.font = 'bold 20px sans-serif';
-            ctx.fillText('💻', cx, cy);
-          }
-          ctx.restore();
-        }
+          ctx.fillRect(item.box.x, item.box.y, item.box.w, item.box.h);
 
-        cardDefs.forEach(c => {
-          // Draw Icon
-          drawCardIcon(c.iconType, c.x + 24, c.y + 26);
-
-          // Draw Title
-          ctx.save();
-          ctx.fillStyle = '#0a1d4a';
-          ctx.font = '900 17px "Segoe UI", Arial, sans-serif';
-          ctx.textAlign = 'left';
-          ctx.textBaseline = 'top';
-          ctx.fillText(c.title, c.x + 58, c.y + 6);
-
-          // Draw Subtitle lines
+          // Draw clean, professional text
           ctx.fillStyle = '#475569';
           ctx.font = '600 12px "Segoe UI", Arial, sans-serif';
-          ctx.fillText(c.desc1, c.x + 58, c.y + 27);
-          ctx.fillText(c.desc2, c.x + 58, c.y + 43);
-          ctx.restore();
+          ctx.textAlign = 'left';
+          ctx.textBaseline = 'top';
+          ctx.fillText(item.line1, item.box.x, item.box.y + 2);
+          ctx.fillText(item.line2, item.box.x, item.box.y + 18);
         });
 
-        // 4. Build Flawless Bottom Contacts & Address Bar (Starts at y=612 to cover 100% of old bar)
-        const barY = 614;
-        const barH = 768 - barY; // 154px
+        // 5. Build Pristine Bottom Contact & Address Bar
+        // Start bar at y: 654 to cover the old dark blue bar and gold curve
+        const barY = 654;
+        const barH = 768 - barY; // 114px
 
-        // Luxury Deep Navy Gradient matching theme
+        // Draw solid luxury dark navy background
         const barGrad = ctx.createLinearGradient(0, barY, 1376, 768);
         barGrad.addColorStop(0, '#040d25');
         barGrad.addColorStop(0.35, '#071842');
@@ -213,27 +136,23 @@
         goldGrad.addColorStop(0.5, '#fbbf24');
         goldGrad.addColorStop(1, '#f59e0b');
         ctx.fillStyle = goldGrad;
-        ctx.fillRect(0, barY, 1376, 5);
-
-        // Subtle glow line below gold stripe
-        ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
-        ctx.fillRect(0, barY + 5, 1376, 2);
+        ctx.fillRect(0, barY, 1376, 4.5);
 
         // --- Left Side: Phone & Contact Us ---
-        const phoneX = 75;
+        const phoneX = 65;
         const phoneY = barY + barH / 2 + 2;
 
         ctx.save();
         ctx.beginPath();
-        ctx.arc(phoneX, phoneY, 32, 0, Math.PI * 2);
+        ctx.arc(phoneX, phoneY, 28, 0, Math.PI * 2);
         ctx.fillStyle = '#f59e0b';
         ctx.fill();
         ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2.5;
         ctx.stroke();
 
         ctx.fillStyle = '#071536';
-        ctx.font = '28px sans-serif';
+        ctx.font = '24px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('📞', phoneX, phoneY);
@@ -243,43 +162,43 @@
         ctx.save();
         ctx.fillStyle = '#f59e0b';
         ctx.beginPath();
-        ctx.roundRect(124, barY + 28, 115, 24, 12);
+        ctx.roundRect(108, barY + 16, 105, 20, 10);
         ctx.fill();
         ctx.fillStyle = '#071536';
-        ctx.font = '900 12.5px "Segoe UI", Arial, sans-serif';
+        ctx.font = '900 11.5px "Segoe UI", Arial, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('CONTACT US', 181, barY + 40);
+        ctx.fillText('CONTACT US', 160, barY + 26);
         ctx.restore();
 
         // Phone Numbers
         ctx.save();
         ctx.fillStyle = '#ffffff';
-        ctx.font = '800 25px "Segoe UI", Arial, sans-serif';
+        ctx.font = '800 24px "Segoe UI", Arial, sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
-        ctx.fillText('+91 89624 69909   |   +91 91657 61919', 124, barY + 86);
+        ctx.fillText('+91 89624 69909   |   +91 91657 61919', 108, barY + 68);
         ctx.restore();
 
         // Vertical Separator
         ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-        ctx.fillRect(595, barY + 24, 2, barH - 48);
+        ctx.fillRect(505, barY + 16, 2, barH - 32);
 
         // --- Right Side: Location Pin & Address ---
-        const locX = 660;
+        const locX = 545;
         const locY = barY + barH / 2 + 2;
 
         ctx.save();
         ctx.beginPath();
-        ctx.arc(locX, locY, 32, 0, Math.PI * 2);
+        ctx.arc(locX, locY, 28, 0, Math.PI * 2);
         ctx.fillStyle = '#f59e0b';
         ctx.fill();
         ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2.5;
         ctx.stroke();
 
         ctx.fillStyle = '#071536';
-        ctx.font = '28px sans-serif';
+        ctx.font = '24px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('📍', locX, locY);
@@ -289,27 +208,27 @@
         ctx.save();
         ctx.fillStyle = '#f59e0b';
         ctx.beginPath();
-        ctx.roundRect(710, barY + 28, 120, 24, 12);
+        ctx.roundRect(585, barY + 16, 110, 20, 10);
         ctx.fill();
         ctx.fillStyle = '#071536';
-        ctx.font = '900 12.5px "Segoe UI", Arial, sans-serif';
+        ctx.font = '900 11.5px "Segoe UI", Arial, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('OUR ADDRESS', 770, barY + 40);
+        ctx.fillText('OUR ADDRESS', 640, barY + 26);
         ctx.restore();
 
         // Updated Official Address requested by user:
-        // Bnaras Road, Near Mishra Sweets, RG Tower, Ambikapur, Surguja, Chhattisgarh - 497001
+        // Banaras Road, Near Mishra Sweets, RG Tower, Ambikapur, Surguja, Chhattisgarh - 497001
         ctx.save();
         ctx.fillStyle = '#ffffff';
-        ctx.font = '700 18px "Segoe UI", Arial, sans-serif';
+        ctx.font = '700 17.5px "Segoe UI", Arial, sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
-        ctx.fillText('Banaras Road, Near Mishra Sweets, RG Tower,', 710, barY + 74);
-        ctx.fillText('Ambikapur, Surguja, Chhattisgarh - 497001', 710, barY + 102);
+        ctx.fillText('Banaras Road, Near Mishra Sweets, RG Tower,', 585, barY + 54);
+        ctx.fillText('Ambikapur, Surguja, Chhattisgarh - 497001', 585, barY + 80);
         ctx.restore();
 
-        statusEl.textContent = 'Banner composed! Uploading to server...';
+        statusEl.textContent = 'Banner rendered! Uploading to server...';
 
         // Auto POST to server on port 8081
         const dataUrl = canvas.toDataURL('image/png', 1.0);
@@ -330,7 +249,7 @@
       }
     }
 
-    composeAndExport();
+    buildBanner();
   </script>
 </body>
 </html>
