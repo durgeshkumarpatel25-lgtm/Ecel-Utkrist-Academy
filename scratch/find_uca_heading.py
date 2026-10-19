@@ -1,5 +1,0 @@
-with open('index.html', 'r', encoding='utf-8') as f:
-    for i, line in enumerate(f):
-        if 'utkrist computer' in line.lower():
-            safe = line.strip().encode('ascii', 'replace').decode('ascii')
-            print(f"{i+1}: {safe[:120]}")
