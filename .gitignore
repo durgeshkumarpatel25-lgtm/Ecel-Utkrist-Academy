@@ -19,3 +19,14 @@ yarn-error.log*
 .DS_Store
 *.pem
 powershell.cmd
+
+# Scratch & Temporary
+scratch/
+
+# Python Cache & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
