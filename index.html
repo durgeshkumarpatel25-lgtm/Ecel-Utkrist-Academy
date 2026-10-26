@@ -302,11 +302,8 @@
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#ecel-english" class="nav-link">ECEL English</a></li>
           <li><a href="#computer-courses" class="nav-link">Utkrist Computer</a></li>
-          <li><a href="#hesitation-test" class="nav-link">Level Test</a></li>
-          <li><a href="#why-us" class="nav-link">Why Us</a></li>
-          <li><a href="#batches-fees" class="nav-link">Batches</a></li>
           
-          <!-- Registration Menu with 2 Sub-Menus (ECEL & UCA) -->
+          <!-- Registration Menu with 2 Sub-Menus (ECEL & UCA) placed before Level Test -->
           <li class="nav-item-dropdown" id="desktopRegDropdown">
             <button type="button" class="dropdown-toggle-btn" id="regDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="Registration Options">
               <span>Registration</span>
@@ -330,6 +327,9 @@
             </div>
           </li>
 
+          <li><a href="#hesitation-test" class="nav-link">Level Test</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#batches-fees" class="nav-link">Batches</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -387,11 +387,8 @@
         <li><a href="#home" class="mobile-nav-link">Home</a></li>
         <li><a href="#ecel-english" class="mobile-nav-link">🗣️ ECEL English Learning Centre</a></li>
         <li><a href="#computer-courses" class="mobile-nav-link">💻 Utkrist Computer Academy (DCA / PGDCA)</a></li>
-        <li><a href="#hesitation-test" class="mobile-nav-link">⚡ Level Test (60s)</a></li>
-        <li><a href="#why-us" class="mobile-nav-link">Why Us</a></li>
-        <li><a href="#batches-fees" class="mobile-nav-link">Batches &amp; Fees</a></li>
 
-        <!-- Registration Accordion with 2 Sub-Menus for Mobile -->
+        <!-- Registration Accordion with 2 Sub-Menus for Mobile placed before Level Test -->
         <li class="mobile-nav-dropdown-item">
           <button type="button" class="mobile-dropdown-btn" id="mobileRegBtn" aria-expanded="true">
             <span style="display: flex; align-items: center; gap: 0.5rem;">
@@ -417,6 +414,10 @@
             </a>
           </div>
         </li>
+
+        <li><a href="#hesitation-test" class="mobile-nav-link">⚡ Level Test (60s)</a></li>
+        <li><a href="#why-us" class="mobile-nav-link">Why Us</a></li>
+        <li><a href="#batches-fees" class="mobile-nav-link">Batches &amp; Fees</a></li>
 
         <li><a href="#faqs" class="mobile-nav-link">FAQs</a></li>
         <li><a href="#contact" class="mobile-nav-link">Contact &amp; Location</a></li>
@@ -1331,16 +1332,18 @@
             आप अंग्रेजी अच्छी तरह समझ लेते हैं, लेकिन आपका दिमाग बोलने से पहले हिंदी-टू-इंग्लिश ट्रांसलेशन में फंस जाता है। अंबिकापुर सेंटर पर हमारे 20-मिनट के डेली पोडियम माइक अभ्यास से आप 30 दिनों में इस झिझक को पूरी तरह खत्म कर सकते हैं!
           </p>
 
-          <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-            <a href="#" id="quizWhatsappAction" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="padding: 0.9rem 1.75rem; font-size: 1rem;">
+          <div class="quiz-result-btn-group">
+            <a href="#" id="quizWhatsappAction" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp quiz-wa-main-btn">
               💬 Send My Result to Rajesh Sir on WhatsApp
             </a>
-            <button type="button" class="btn btn-primary open-demo-modal" style="padding: 0.9rem 1.75rem; font-size: 1rem;">
-              🎯 Book Free 1-on-1 Hesitation Diagnosis
-            </button>
-            <button type="button" class="btn btn-outline" onclick="resetQuiz()" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.3);">
-              🔄 Retake Test
-            </button>
+            <div class="quiz-result-sub-btns">
+              <button type="button" class="btn btn-primary open-demo-modal">
+                🎯 Book Free 1-on-1 Hesitation Diagnosis
+              </button>
+              <button type="button" class="btn btn-quiz-reset" onclick="resetQuiz()" id="quizResetBtn">
+                🔄 Reset Test
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -2291,8 +2294,28 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 ECEL and Utkrist Computer Academy, Ambikapur. All rights reserved.</p>
-        <p>Banaras Road, Near Mishra Sweets, RG Tower, Ambikapur, Chhattisgarh 497001 • Mob: +91 89624 69909, +91 91657 61919</p>
+        <div class="footer-bottom-info">
+          <p class="footer-copy">&copy; 2026 ECEL and Utkrist Computer Academy, Ambikapur. All rights reserved.</p>
+          <p class="footer-address">Banaras Road, Near Mishra Sweets, RG Tower, Ambikapur, Chhattisgarh 497001 • Mob: +91 89624 69909, +91 91657 61919</p>
+        </div>
+
+        <!-- Center Application-Style Contact Buttons in Footer -->
+        <div class="footer-app-actions-wrap">
+          <a href="tel:+918962469909" class="footer-app-btn footer-call-btn" aria-label="Direct Call to Rajesh Sir">
+            <span class="footer-app-icon">📞</span>
+            <div class="footer-app-text">
+              <span class="footer-app-sub">Direct Helpline</span>
+              <span class="footer-app-main">Call: +91 89624 69909</span>
+            </div>
+          </a>
+          <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%8C%9F%20I%20want%20to%20enquire%20about%20Spoken%20English%20and%20Computer%20courses%20at%20ECEL%20and%20Utkrist%20Academy%2C%20Ambikapur.%20%F0%9F%A4%A9%F0%9F%93%9A%20Please%20guide%20me%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="footer-app-btn footer-wa-btn" aria-label="Chat with counselor on WhatsApp">
+            <span class="footer-app-icon">💬</span>
+            <div class="footer-app-text">
+              <span class="footer-app-sub">Instant WhatsApp</span>
+              <span class="footer-app-main">WhatsApp Counselor</span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
