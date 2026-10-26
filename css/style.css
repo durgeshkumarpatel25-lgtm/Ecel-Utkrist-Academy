@@ -3140,22 +3140,114 @@ svg {
 }
 
 .footer-bottom {
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
+  flex-direction: column !important;
+  gap: 1.25rem;
   align-items: center;
   text-align: center;
   font-size: 0.85rem;
+  width: 100%;
 }
 
-@media (min-width: 900px) {
-  .footer-bottom {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-  }
+.footer-bottom-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  align-items: center;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.footer-bottom-info p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.footer-bottom-info .footer-address {
+  color: #e2e8f0;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Application-Style Center Action Buttons in Footer */
+.footer-app-actions-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.footer-app-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  min-width: 220px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.footer-app-btn:hover {
+  transform: translateY(-2.5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.footer-call-btn {
+  background: linear-gradient(135deg, #0f274a 0%, #1e40af 100%);
+  color: #ffffff !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.4);
+}
+
+.footer-call-btn:hover {
+  border-color: rgba(96, 165, 250, 0.8);
+}
+
+.footer-wa-btn {
+  background: linear-gradient(135deg, #064e3b 0%, #16a34a 100%);
+  color: #ffffff !important;
+  border: 1.5px solid rgba(34, 197, 94, 0.4);
+}
+
+.footer-wa-btn:hover {
+  border-color: rgba(74, 222, 128, 0.8);
+}
+
+.footer-app-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.footer-app-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer-app-sub {
+  font-size: 0.72rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-app-main {
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #ffffff;
 }
 
 /* Footer Social Media Strip */
