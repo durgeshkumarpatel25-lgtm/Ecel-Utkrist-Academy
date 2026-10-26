@@ -7,6 +7,8 @@
 
 :root {
   /* Brand Theme Colors */
+  --color-primary: #1e3a8a;
+  --color-primary-dark: #0f172a;
   --color-navy-950: #0a0f1d;
   --color-navy-900: #0f172a;
   --color-navy-800: #1e3a8a;
@@ -960,9 +962,11 @@ svg {
   .call-btn-full {
     display: inline;
   }
+
   .call-btn-short {
     display: none;
   }
+
   .header-call-btn {
     padding: 0.48rem 0.85rem;
     font-size: 0.84rem;
