@@ -235,17 +235,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (whatsappConfirmBtn) {
             const courseEmojis = {
-              "Advance Spoken English (Morning Batch)": "🗣️ (Morning Fluency & Speaking)",
-              "Advance Spoken English (Evening Batch)": "🗣️ (Evening Fluency & Speaking)",
+              "Advance Spoken English (Morning Batch)": "🌅 (Morning Fluency & Speaking)",
+              "Advance Spoken English (Evening Batch)": "🌇 (Evening Fluency & Speaking)",
+              "Advanced Fluency & Public Speaking": "🎙️ (Fluency, Extempore & Public Speaking)",
               "Complete Advance English Course": "🌟 (6-Month Complete Fluency & Personality)",
-              "Basic Spoken English": "🗣️ (Hindi to English Transition)",
-              "Advanced Spoken English & Fluency": "🔥 (Fluency & Accent Mastery)",
-              "Public Speaking & Stage Confidence": "🎙️ (Stage Presence & Mic Practice)",
-              "Personality Development & Grooming": "👔 (Executive Grooming & Etiquette)",
-              "Interview Prep & Group Discussion": "💼 (HR Questions & Mock GDs)",
-              "Kids & School Students English": "🎒 (School Recitation & Confidence)",
-              "Competitive Exam English": "📚 (Grammar Rules & Comprehension)",
-              "Professional & Business English": "🏢 (Corporate Emails & Meetings)",
               "DCA (Diploma in Computer Application)": "💻 (DCA - 1 Year Diploma)",
               "PGDCA (Post Graduate Diploma in Computer Application)": "🎓 (PGDCA - Post Graduate Diploma)",
               "Basic Computer Course (BCC)": "🖥️ (Basic Computer, Typing & MS Office)",
@@ -478,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
         headline = `${totalScore}% Hesitation Detected — "Translation Loop & Stage Freeze"`;
         meterPercent = Math.min(totalScore, 95);
         diagnosis = "आप अंग्रेजी समझ लेते हैं, लेकिन दिमाग में वाक्य हिंदी-से-अंग्रेजी अनुवाद में अटक जाते हैं और माइक के सामने घबराहट होती है। हमारे 20-मिनट के डेली पोडियम माइक अभ्यास से आप 30-45 दिनों में इस झिझक को पूरी तरह तोड़ सकते हैं!";
-        recommendedCourse = "Basic Spoken English + Stage Mic Drills";
+        recommendedCourse = "Advance Spoken English (Morning / Evening) + Stage Mic Drills";
       } else if (totalScore >= 35) {
         headline = `${totalScore}% Hesitation Detected — "Vocabulary & Continuity Gap"`;
         meterPercent = Math.max(totalScore, 45);
