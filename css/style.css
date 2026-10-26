@@ -3408,27 +3408,16 @@ svg {
 
 @media (max-width: 767px) {
   body {
-    padding-bottom: 74px !important;
+    padding-bottom: 90px !important;
+  }
+  .footer {
+    padding-bottom: 95px !important;
   }
 }
 
-
-/* 14. Floating Desktop Actions (Call & WhatsApp) */
+/* 14. Floating Desktop Actions - Replaced by Centered Footer App Actions */
 .floating-actions {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 95;
   display: none !important;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.65rem;
-}
-
-@media (min-width: 768px) {
-  .floating-actions {
-    display: flex !important;
-  }
 }
 
 .floating-btn {
