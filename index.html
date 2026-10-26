@@ -251,7 +251,21 @@
         <span>📍 Banaras Road, Near Mishra Sweets, RG Tower, Ambikapur</span>
       </div>
       <div class="top-bar-right">
-        <span>⏰ Mon - Sat: 7:00 AM – 8:00 PM</span>
+        <div class="top-bar-socials">
+          <span class="top-bar-social-label">Follow us on:</span>
+          <a href="https://www.instagram.com/ecel_english_ambikapur?dlrf=MTVpcTNuNTk3emRtNg==" target="_blank" rel="noopener noreferrer" class="social-icon-btn insta-ecel" title="Follow ECEL English Learning Centre on Instagram" aria-label="ECEL Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>ECEL Insta</span>
+          </a>
+          <a href="https://www.instagram.com/utkristcomputer?srtk=cDExMGd0dDk4N2pl" target="_blank" rel="noopener noreferrer" class="social-icon-btn insta-uca" title="Follow Utkrist Computer Academy on Instagram" aria-label="UCA Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>UCA Insta</span>
+          </a>
+          <a href="https://youtube.com/@ecelambikapur?si=9-jF37J2_g_M57mM" target="_blank" rel="noopener noreferrer" class="social-icon-btn yt-ecel" title="Subscribe to ECEL English Learning Centre on YouTube" aria-label="ECEL YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>ECEL YouTube</span>
+          </a>
+        </div>
         <div class="dual-phone-group">
           <a href="tel:+918962469909" class="top-bar-phone">📞 +91 89624 69909</a>
           <span style="opacity: 0.5;">|</span>
@@ -291,6 +305,31 @@
           <li><a href="#hesitation-test" class="nav-link">Level Test</a></li>
           <li><a href="#why-us" class="nav-link">Why Us</a></li>
           <li><a href="#batches-fees" class="nav-link">Batches</a></li>
+          
+          <!-- Registration Menu with 2 Sub-Menus (ECEL & UCA) -->
+          <li class="nav-item-dropdown" id="desktopRegDropdown">
+            <button type="button" class="dropdown-toggle-btn" id="regDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="Registration Options">
+              <span>Registration</span>
+              <svg class="dropdown-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu" role="menu" aria-labelledby="regDropdownBtn">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfawHfiK-KFqZUN_r2-QxSt0ongC7XjoTu4z19m4qn3rzFSIQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="dropdown-menu-item" role="menuitem">
+                <span class="dropdown-item-badge ecel-badge">ECEL</span>
+                <div class="dropdown-item-info">
+                  <span class="dropdown-item-name">ECEL Spoken English ↗</span>
+                  <span class="dropdown-item-sub">Online Student Registration Form</span>
+                </div>
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMVUqi2JGaFaoIVGIhxxlsR5QBCBJackSzZGAe8QxSWBWBtg/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="dropdown-menu-item" role="menuitem">
+                <span class="dropdown-item-badge uca-badge">UCA</span>
+                <div class="dropdown-item-info">
+                  <span class="dropdown-item-name">UCA Computer Academy ↗</span>
+                  <span class="dropdown-item-sub">DCA, PGDCA, Basic &amp; Tally Form</span>
+                </div>
+              </a>
+            </div>
+          </li>
+
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -351,9 +390,58 @@
         <li><a href="#hesitation-test" class="mobile-nav-link">⚡ Level Test (60s)</a></li>
         <li><a href="#why-us" class="mobile-nav-link">Why Us</a></li>
         <li><a href="#batches-fees" class="mobile-nav-link">Batches &amp; Fees</a></li>
+
+        <!-- Registration Accordion with 2 Sub-Menus for Mobile -->
+        <li class="mobile-nav-dropdown-item">
+          <button type="button" class="mobile-dropdown-btn" id="mobileRegBtn" aria-expanded="true">
+            <span style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>📝</span>
+              <strong>Registration Forms</strong>
+            </span>
+            <svg class="mobile-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="mobile-subnav-list open" id="mobileRegSubmenu">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfawHfiK-KFqZUN_r2-QxSt0ongC7XjoTu4z19m4qn3rzFSIQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="mobile-subnav-link">
+              <span class="subnav-pill ecel-pill">ECEL</span>
+              <div class="subnav-text">
+                <span class="subnav-title">ECEL Registration Form ↗</span>
+                <span class="subnav-desc">Spoken English &amp; Public Speaking</span>
+              </div>
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMVUqi2JGaFaoIVGIhxxlsR5QBCBJackSzZGAe8QxSWBWBtg/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="mobile-subnav-link">
+              <span class="subnav-pill uca-pill">UCA</span>
+              <div class="subnav-text">
+                <span class="subnav-title">UCA Registration Form ↗</span>
+                <span class="subnav-desc">DCA, PGDCA, Basic &amp; Tally</span>
+              </div>
+            </a>
+          </div>
+        </li>
+
         <li><a href="#faqs" class="mobile-nav-link">FAQs</a></li>
         <li><a href="#contact" class="mobile-nav-link">Contact &amp; Location</a></li>
       </ul>
+
+      <!-- Mobile Drawer Follow Us Section -->
+      <div class="mobile-drawer-socials">
+        <div class="mobile-social-title">
+          <span>🌟</span> Follow Us On
+        </div>
+        <div class="mobile-social-grid">
+          <a href="https://www.instagram.com/ecel_english_ambikapur?dlrf=MTVpcTNuNTk3emRtNg==" target="_blank" rel="noopener noreferrer" class="mobile-social-btn mobile-insta-ecel">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>ECEL English (Instagram)</span>
+          </a>
+          <a href="https://www.instagram.com/utkristcomputer?srtk=cDExMGd0dDk4N2pl" target="_blank" rel="noopener noreferrer" class="mobile-social-btn mobile-insta-uca">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>UCA Computer (Instagram)</span>
+          </a>
+          <a href="https://youtube.com/@ecelambikapur?si=9-jF37J2_g_M57mM" target="_blank" rel="noopener noreferrer" class="mobile-social-btn mobile-yt-ecel">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>ECEL English (YouTube)</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
@@ -594,58 +682,58 @@
       </div>
 
       <div class="courses-grid">
-        <!-- Course 1: Spoken English -->
+        <!-- Course 1: Advance Spoken English -->
         <div class="course-card reveal-on-scroll" data-category="spoken" data-theme="amber">
           <div>
             <div class="course-card-top">
               <div class="course-icon-wrap">✨</div>
               <span class="course-badge">
-                <span class="pulsing-dot"></span> Most Popular
+                <span class="pulsing-dot"></span> Morning &amp; Evening Batches
               </span>
             </div>
-            <h3 class="course-title">Basic Spoken English</h3>
-            <span class="course-hindi">बेसिक स्पोकन इंग्लिश (शुरुआती स्तर)</span>
+            <h3 class="course-title">Advance Spoken English</h3>
+            <span class="course-hindi">एडवांस्ड स्पोकन इंग्लिश (मॉर्निंग एवं इवनिंग बैच)</span>
 
             <!-- Quick Specs Pills -->
             <div class="course-specs-pills">
-              <span class="spec-pill">⏱️ 45 Days</span>
+              <span class="spec-pill">⏱️ 3 Months</span>
               <span class="spec-pill">👥 12-15 Batch</span>
               <span class="spec-pill">🎙️ Daily Mic</span>
               <span class="spec-pill">📜 Certificate</span>
             </div>
 
             <p class="course-desc">
-              Designed specifically for Hindi-medium students in Ambikapur. Learn to think directly in English without translating in your head.
+              Designed for Hindi-medium students and youth in Ambikapur. Learn to think directly in English without translating in your head and build confident fluency.
             </p>
 
             <div class="course-audience">
-              <strong>🎯 Best For:</strong> Beginners, Hindi-medium school &amp; college students struggling with basic sentence framing.
+              <strong>🎯 Best For:</strong> Students, college youth &amp; job seekers wanting solid English speaking foundation and conversational fluency.
             </div>
 
             <ul class="outcomes-list">
               <li><span class="outcome-check">✓</span> <strong>Break Translation Loop:</strong> Stop mental Hindi-to-English translation</li>
-              <li><span class="outcome-check">✓</span> <strong>Daily Conversations:</strong> Master 300+ everyday phrases &amp; grammar formulas</li>
+              <li><span class="outcome-check">✓</span> <strong>Daily Conversations:</strong> Master 300+ everyday phrases &amp; sentence formulas</li>
               <li><span class="outcome-check">✓</span> <strong>Clear Pronunciation:</strong> Eliminate Mother Tongue Influence (MTI)</li>
             </ul>
 
             <div class="course-fee-tag">
               <span class="fee-label">Special Offer:</span>
-              <span class="fee-value">₹3,999</span>
-              <span class="fee-badge">30% Off This Week</span>
+              <span class="fee-value">₹4,999</span>
+              <span class="fee-badge">3 Months Complete</span>
             </div>
           </div>
 
           <div class="course-actions">
-            <button type="button" class="btn-course-demo open-demo-modal" data-course="Basic Spoken English">
+            <button type="button" class="btn-course-demo open-demo-modal" data-course="Advance Spoken English (Morning / Evening Batch)">
               🎯 Book Demo
             </button>
-            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%8C%9F%20I%20want%20to%20enquire%20about%20the%20%2ABasic%20Spoken%20English%20Course%2A%20%28Hindi%20to%20English%29%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%97%A3%EF%B8%8F%F0%9F%93%9A%20Please%20share%20new%20batch%20timings%21" target="_blank" rel="noopener noreferrer" class="btn-course-wa">
+            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%8C%9F%20I%20want%20to%20enquire%20about%20the%20%2AAdvance%20Spoken%20English%20Course%20%283%20Months%29%2A%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%97%A3%EF%B8%8F%F0%9F%93%9A%20Please%20guide%20me%21" target="_blank" rel="noopener noreferrer" class="btn-course-wa">
               💬 WhatsApp
             </a>
           </div>
         </div>
 
-        <!-- Course 2: Advanced Spoken English -->
+        <!-- Course 2: Advanced Spoken English & Fluency -->
         <div class="course-card reveal-on-scroll" data-category="spoken" data-theme="coral">
           <div>
             <div class="course-card-top">
@@ -690,6 +778,56 @@
               🎯 Book Demo
             </button>
             <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%94%A5%20I%20want%20to%20enquire%20about%20the%20%2AAdvanced%20Spoken%20English%20%26%20Fluency%20Mastery%2A%20course%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%8E%AF%E2%9C%A8%20Please%20share%20batch%20details%21" target="_blank" rel="noopener noreferrer" class="btn-course-wa">
+              💬 WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Course New: Complete Advance English Course (6 Months) -->
+        <div class="course-card reveal-on-scroll" data-category="spoken" data-theme="emerald">
+          <div>
+            <div class="course-card-top">
+              <div class="course-icon-wrap">🌟</div>
+              <span class="course-badge" style="background: rgba(16, 185, 129, 0.15); color: #059669; border: 1px solid rgba(16, 185, 129, 0.3);">
+                <span class="pulsing-dot" style="background-color: #10b981;"></span> Complete 6-Month Mastery
+              </span>
+            </div>
+            <h3 class="course-title">Complete Advance English Course</h3>
+            <span class="course-hindi">कम्प्लीट एडवांस्ड इंग्लिश कोर्स (6 माह सम्पूर्ण दक्षता)</span>
+
+            <div class="course-specs-pills">
+              <span class="spec-pill">⏱️ 6 Months</span>
+              <span class="spec-pill">🎙️ Fluency &amp; Mic</span>
+              <span class="spec-pill">👔 Personality</span>
+              <span class="spec-pill">📜 Diploma Certificate</span>
+            </div>
+
+            <p class="course-desc">
+              The ultimate zero-to-advanced mastery program in Ambikapur. Complete grammar mastery, vocabulary enrichment, stage extempore, debates, and executive personality grooming.
+            </p>
+
+            <div class="course-audience">
+              <strong>🎯 Best For:</strong> Students, job aspirants, and youth wanting complete, lifelong mastery in spoken &amp; written English with stage presence.
+            </div>
+
+            <ul class="outcomes-list">
+              <li><span class="outcome-check">✓</span> <strong>Full Fluency &amp; Public Speaking:</strong> Daily podium drills, debates and non-stop speaking</li>
+              <li><span class="outcome-check">✓</span> <strong>Grammar &amp; Vocabulary Mastery:</strong> 1000+ advanced words, corporate idioms &amp; expressions</li>
+              <li><span class="outcome-check">✓</span> <strong>Interview &amp; Personality Grooming:</strong> Mock GDs, resume building, and body language polish</li>
+            </ul>
+
+            <div class="course-fee-tag">
+              <span class="fee-label">Special Offer:</span>
+              <span class="fee-value">₹7,999</span>
+              <span class="fee-badge">Best Value (6 Mo)</span>
+            </div>
+          </div>
+
+          <div class="course-actions">
+            <button type="button" class="btn-course-demo open-demo-modal" data-course="Complete Advance English Course">
+              🎯 Book Demo
+            </button>
+            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%8C%9F%20I%20want%20to%20enquire%20about%20the%20%2AComplete%20Advance%20English%20Course%20%286%20Months%29%2A%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%8E%AF%E2%9C%A8%20Please%20share%20details%21" target="_blank" rel="noopener noreferrer" class="btn-course-wa">
               💬 WhatsApp
             </a>
           </div>
@@ -1235,7 +1373,7 @@
 
             <div class="course-fee-tag">
               <span class="fee-label">Special Offer:</span>
-              <span class="fee-value">₹2,999</span>
+              <span class="fee-value">₹3,999</span>
               <span class="fee-badge">1 Student : 1 PC</span>
             </div>
           </div>
@@ -1244,7 +1382,7 @@
             <button type="button" class="btn-course-demo open-demo-modal" data-course="Basic Computer Course (BCC)">
               🎯 Book Demo
             </button>
-            <a href="https://wa.me/919165761919?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%96%A5%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2ABasic%20Computer%20Course%2A%20at%20Utkrist%20Computer%20Academy%2C%20Ambikapur.%20%F0%9F%A4%A9%20Please%20share%20daily%20timings%21" target="_blank" rel="noopener noreferrer" class="btn-course-wa">
+            <a href="https://wa.me/919165761919?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%96%A5%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2ABasic%20Computer%20Course%2A%20at%20Utkrist%20Computer%20Academy%2C%20Ambikapur.%20%F0%9F%A4%A9%20Please%20guide%20me%21" target="_blank" rel="noopener noreferrer" class="btn-course-wa">
               💬 WhatsApp
             </a>
           </div>
@@ -1285,7 +1423,7 @@
 
             <div class="course-fee-tag">
               <span class="fee-label">Special Offer:</span>
-              <span class="fee-value">₹2,499</span>
+              <span class="fee-value">₹4,999</span>
               <span class="fee-badge">Corporate Trained</span>
             </div>
           </div>
@@ -1511,7 +1649,7 @@
         <!-- After Card -->
         <div class="trans-card trans-card-after">
           <h3 class="trans-card-title">
-            <span>✅ Day 45: After Creative English Spoken Training</span>
+            <span>✅ After ECEL Spoken English Training</span>
           </h3>
           <ul class="trans-list">
             <li class="trans-item">
@@ -1609,7 +1747,7 @@
   <section id="why-us" class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <div class="section-badge">The Creative English Advantage</div>
+        <div class="section-badge">The ECEL English Advantage</div>
         <h2 class="section-title">
           Why We Are Ambikapur's <span class="highlight-underline">#1 Spoken English Institute</span>
         </h2>
@@ -1721,7 +1859,7 @@
           <div>
             <div class="testimonial-stars">★★★★★</div>
             <div class="testimonial-hindi">"कॉलेज में इंग्लिश बोलने का डर 45 दिनों में खत्म हो गया!"</div>
-            <p class="testimonial-quote">"I was always terrified of speaking English in front of college professors. Within 45 days at Creative English Spoken Center, my hesitation vanished! The daily speaking drills made all the difference."</p>
+            <p class="testimonial-quote">"I was always terrified of speaking English in front of college professors. Within my course at ECEL English Learning Centre, my hesitation vanished! The daily speaking drills made all the difference."</p>
           </div>
           <div class="testimonial-user">
             <div class="user-avatar">AG</div>
@@ -1790,7 +1928,6 @@
             <tr>
               <th>Wing &amp; Program</th>
               <th>Duration</th>
-              <th>Batch Timing (Mon-Sat)</th>
               <th>Fee Estimate</th>
               <th>Status</th>
               <th>Action</th>
@@ -1801,43 +1938,53 @@
             <tr>
               <td>
                 <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: var(--color-amber-600); font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px;">ECEL Spoken English</span><br />
-                <strong style="margin-top: 0.25rem; display: inline-block;">Basic Spoken English (Morning Batch)</strong>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted);">College &amp; school students before classes</div>
+                <strong style="margin-top: 0.25rem; display: inline-block;">Advance Spoken English (Morning Batch)</strong>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">College &amp; school students before classes • Hindi to English fluency</div>
               </td>
-              <td>2 Months</td>
-              <td>07:30 AM – 08:45 AM</td>
-              <td><strong>₹3,999</strong></td>
+              <td>3 Months</td>
+              <td><strong>₹4,999</strong></td>
               <td><span style="color: #059669; font-weight: 700;">● Enrolling Now</span></td>
               <td>
-                <button type="button" class="btn btn-primary btn-sm open-demo-modal" data-course="Basic Spoken English (Morning Batch)">Book Demo</button>
+                <button type="button" class="btn btn-primary btn-sm open-demo-modal" data-course="Advance Spoken English (Morning Batch)">Book Demo</button>
               </td>
             </tr>
             <tr>
               <td>
                 <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: var(--color-amber-600); font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px;">ECEL Spoken English</span><br />
-                <strong style="margin-top: 0.25rem; display: inline-block;">Basic Spoken English (Evening Batch)</strong>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Job seekers &amp; youth returning from college/work</div>
+                <strong style="margin-top: 0.25rem; display: inline-block;">Advance Spoken English (Evening Batch)</strong>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Job seekers &amp; youth returning from college/work • Evening slot</div>
               </td>
-              <td>2 Months</td>
-              <td>05:00 PM – 06:15 PM</td>
-              <td><strong>₹3,999</strong></td>
+              <td>3 Months</td>
+              <td><strong>₹4,999</strong></td>
               <td><span style="color: #d97706; font-weight: 700;">● Filling Fast</span></td>
               <td>
-                <button type="button" class="btn btn-primary btn-sm open-demo-modal" data-course="Basic Spoken English (Evening Batch)">Book Demo</button>
+                <button type="button" class="btn btn-primary btn-sm open-demo-modal" data-course="Advance Spoken English (Evening Batch)">Book Demo</button>
               </td>
             </tr>
             <tr>
               <td>
                 <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: var(--color-amber-600); font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px;">ECEL Spoken English</span><br />
                 <strong style="margin-top: 0.25rem; display: inline-block;">Advanced Fluency &amp; Public Speaking</strong>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Graduates, professionals &amp; public speakers</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Graduates, professionals &amp; public speakers • Stage confidence</div>
               </td>
               <td>2 Months</td>
-              <td>06:30 PM – 07:45 PM</td>
               <td><strong>₹4,999</strong></td>
               <td><span style="color: #059669; font-weight: 700;">● Enrolling Now</span></td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm open-demo-modal" data-course="Advanced Fluency & Public Speaking">Book Demo</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #059669; font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px;">ECEL Spoken English</span><br />
+                <strong style="margin-top: 0.25rem; display: inline-block;">Complete Advance English Course</strong>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Comprehensive Fluency, Public Speaking, Grammar &amp; Personality</div>
+              </td>
+              <td>6 Months</td>
+              <td><strong>₹7,999</strong></td>
+              <td><span style="color: #059669; font-weight: 700;">● Admissions Open</span></td>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm open-demo-modal" data-course="Complete Advance English Course">Book Demo</button>
               </td>
             </tr>
 
@@ -1849,7 +1996,6 @@
                 <div style="font-size: 0.75rem; color: var(--color-text-muted);">Govt job recognized • 100% Practical Lab Training</div>
               </td>
               <td>1 Year / 6 Mo</td>
-              <td>10:00 AM – 11:30 AM</td>
               <td><strong>Easy EMI</strong></td>
               <td><span style="color: #059669; font-weight: 700;">● Admissions Open</span></td>
               <td>
@@ -1863,7 +2009,6 @@
                 <div style="font-size: 0.75rem; color: var(--color-text-muted);">University recognized for all graduates</div>
               </td>
               <td>1 Year (2 Sem)</td>
-              <td>02:00 PM – 03:30 PM</td>
               <td><strong>Easy EMI</strong></td>
               <td><span style="color: #059669; font-weight: 700;">● Admissions Open</span></td>
               <td>
@@ -1877,8 +2022,7 @@
                 <div style="font-size: 0.75rem; color: var(--color-text-muted);">MS Office, Internet &amp; Hindi/English Typing</div>
               </td>
               <td>45–60 Days</td>
-              <td>11:30 AM – 12:45 PM</td>
-              <td><strong>₹2,999</strong></td>
+              <td><strong>₹3,999</strong></td>
               <td><span style="color: #059669; font-weight: 700;">● Enrolling Now</span></td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm open-demo-modal" data-course="Basic Computer Course (BCC)">Book Demo</button>
@@ -1891,8 +2035,7 @@
                 <div style="font-size: 0.75rem; color: var(--color-text-muted);">Vouchers, billing, inventory &amp; balance sheet</div>
               </td>
               <td>2 Months</td>
-              <td>03:30 PM – 04:45 PM</td>
-              <td><strong>₹2,499</strong></td>
+              <td><strong>₹4,999</strong></td>
               <td><span style="color: #d97706; font-weight: 700;">● Filling Fast</span></td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm open-demo-modal" data-course="Tally Prime with GST & Accounting">Book Demo</button>
@@ -1904,35 +2047,67 @@
 
       <!-- Mobile Stacked Cards -->
       <div class="batches-cards-mobile">
-        <!-- Spoken English Card - Basic -->
+        <!-- Spoken English Card - Advance Morning -->
         <div class="batch-mobile-card">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
             <div>
               <span style="font-size: 0.72rem; font-weight: 800; color: var(--color-amber-600);">ECEL SPOKEN ENGLISH</span>
-              <h3 style="font-size: 1.1rem; font-weight: 800;">Basic Spoken English</h3>
-              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Morning: 07:30 AM – 08:45 AM | Evening: 05:00 PM</p>
+              <h3 style="font-size: 1.1rem; font-weight: 800;">Advance Spoken English (Morning Batch)</h3>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Duration: 3 Months • Hindi to English Fluency</p>
             </div>
-            <span style="font-size: 1.2rem; font-weight: 800; color: var(--color-navy-900);">₹3,999</span>
+            <span style="font-size: 1.2rem; font-weight: 800; color: var(--color-navy-900);">₹4,999</span>
           </div>
           <div style="display: flex; gap: 0.5rem;">
-            <button type="button" class="btn btn-primary btn-sm btn-block open-demo-modal" data-course="Basic Spoken English">Book Free Demo</button>
-            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%97%A3%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2ABasic%20Spoken%20English%20Batch%2A%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%8E%99%EF%B8%8F%E2%9C%A8%20Please%20share%20batch%20timings%20%26%20details%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+            <button type="button" class="btn btn-primary btn-sm btn-block open-demo-modal" data-course="Advance Spoken English (Morning Batch)">Book Free Demo</button>
+            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%97%A3%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2AAdvance%20Spoken%20English%20Morning%20Batch%20%283%20Months%29%2A%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%8E%99%EF%B8%8F%E2%9C%A8%20Please%20guide%20me%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
           </div>
         </div>
 
-        <!-- Spoken English Card - Advanced -->
+        <!-- Spoken English Card - Advance Evening -->
         <div class="batch-mobile-card" style="border-left: 4px solid var(--color-amber-600);">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
             <div>
               <span style="font-size: 0.72rem; font-weight: 800; color: var(--color-amber-600);">ECEL SPOKEN ENGLISH</span>
-              <h3 style="font-size: 1.1rem; font-weight: 800;">Advanced Spoken English &amp; Fluency</h3>
-              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Evening: 06:30 PM – 07:45 PM | Stage &amp; Fluency</p>
+              <h3 style="font-size: 1.1rem; font-weight: 800;">Advance Spoken English (Evening Batch)</h3>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Duration: 3 Months • Evening Dedicated Batch</p>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: 800; color: var(--color-navy-900);">₹4,999</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button type="button" class="btn btn-primary btn-sm btn-block open-demo-modal" data-course="Advance Spoken English (Evening Batch)">Book Free Demo</button>
+            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%97%A3%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2AAdvance%20Spoken%20English%20Evening%20Batch%20%283%20Months%29%2A%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%8E%99%EF%B8%8F%E2%9C%A8%20Please%20guide%20me%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- Spoken English Card - Advanced Fluency -->
+        <div class="batch-mobile-card" style="border-left: 4px solid #ea580c;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <span style="font-size: 0.72rem; font-weight: 800; color: #ea580c);">ECEL SPOKEN ENGLISH</span>
+              <h3 style="font-size: 1.1rem; font-weight: 800;">Advanced Fluency &amp; Public Speaking</h3>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Duration: 2 Months • Stage &amp; Fluency Mastery</p>
             </div>
             <span style="font-size: 1.2rem; font-weight: 800; color: var(--color-navy-900);">₹4,999</span>
           </div>
           <div style="display: flex; gap: 0.5rem;">
             <button type="button" class="btn btn-primary btn-sm btn-block open-demo-modal" data-course="Advanced Fluency & Public Speaking">Book Free Demo</button>
-            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%97%A3%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2AAdvanced%20Spoken%20English%20Batch%2A%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%8E%99%EF%B8%8F%E2%9C%A8%20Please%20share%20batch%20timings%20%26%20details%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%97%A3%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2AAdvanced%20Fluency%20%26%20Public%20Speaking%2A%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%8E%99%EF%B8%8F%E2%9C%A8%20Please%20guide%20me%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- Spoken English Card - Complete 6 Month Course -->
+        <div class="batch-mobile-card" style="border-left: 4px solid #059669;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <span style="font-size: 0.72rem; font-weight: 800; color: #059669;">ECEL SPOKEN ENGLISH</span>
+              <h3 style="font-size: 1.1rem; font-weight: 800;">Complete Advance English Course</h3>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Duration: 6 Months • Complete Fluency, Public Speaking &amp; Personality</p>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: 800; color: #059669;">₹7,999</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button type="button" class="btn btn-primary btn-sm btn-block open-demo-modal" data-course="Complete Advance English Course">Book Free Demo</button>
+            <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%8C%9F%20I%20want%20to%20enquire%20about%20the%20%2AComplete%20Advance%20English%20Course%20%286%20Months%29%2A%20at%20ECEL%2C%20Ambikapur.%20%F0%9F%8E%AF%E2%9C%A8%20Please%20guide%20me%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
           </div>
         </div>
 
@@ -1942,7 +2117,7 @@
             <div>
               <span style="font-size: 0.72rem; font-weight: 800; color: #0284c7;">UTKRIST COMPUTER ACADEMY</span>
               <h3 style="font-size: 1.1rem; font-weight: 800;">DCA / PGDCA Diplomas</h3>
-              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Daily Practical Lab Batches (Morning / Afternoon)</p>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Duration: 1 Year / 6 Mo • 100% Practical Lab Training</p>
             </div>
             <span style="font-size: 1.05rem; font-weight: 800; color: #0284c7;">Easy EMI</span>
           </div>
@@ -1958,13 +2133,13 @@
             <div>
               <span style="font-size: 0.72rem; font-weight: 800; color: #059669;">UTKRIST COMPUTER ACADEMY</span>
               <h3 style="font-size: 1.1rem; font-weight: 800;">Basic Computer (BCC &amp; Typing)</h3>
-              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Batch: 11:30 AM – 12:45 PM | 1 Student : 1 PC</p>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Duration: 45–60 Days • 1 Student : 1 PC</p>
             </div>
-            <span style="font-size: 1.15rem; font-weight: 800; color: #059669;">₹2,999</span>
+            <span style="font-size: 1.15rem; font-weight: 800; color: #059669;">₹3,999</span>
           </div>
           <div style="display: flex; gap: 0.5rem;">
             <button type="button" class="btn btn-primary btn-sm btn-block open-demo-modal" data-course="Basic Computer Course (BCC)">Book Free Demo</button>
-            <a href="https://wa.me/919165761919?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%96%A5%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2ABasic%20Computer%20Course%20%28BCC%20%26%20Typing%29%2A%20at%20Utkrist%20Computer%20Academy%2C%20Ambikapur.%20%E2%8C%A8%EF%B8%8F%F0%9F%96%B1%EF%B8%8F%20Please%20share%20daily%20timings%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+            <a href="https://wa.me/919165761919?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%96%A5%EF%B8%8F%20I%20want%20to%20enquire%20about%20the%20%2ABasic%20Computer%20Course%20%28BCC%20%26%20Typing%29%2A%20at%20Utkrist%20Computer%20Academy%2C%20Ambikapur.%20%E2%8C%A8%EF%B8%8F%F0%9F%96%B1%EF%B8%8F%20Please%20guide%20me%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
           </div>
         </div>
 
@@ -1974,13 +2149,13 @@
             <div>
               <span style="font-size: 0.72rem; font-weight: 800; color: #d97706;">UTKRIST COMPUTER ACADEMY</span>
               <h3 style="font-size: 1.1rem; font-weight: 800;">Tally Prime with GST</h3>
-              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Batch: 03:30 PM – 04:45 PM | 100% Practical</p>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted);">Duration: 2 Months • 100% Practical Accounting</p>
             </div>
-            <span style="font-size: 1.15rem; font-weight: 800; color: var(--color-navy-900);">₹2,499</span>
+            <span style="font-size: 1.15rem; font-weight: 800; color: var(--color-navy-900);">₹4,999</span>
           </div>
           <div style="display: flex; gap: 0.5rem;">
             <button type="button" class="btn btn-primary btn-sm btn-block open-demo-modal" data-course="Tally Prime with GST & Accounting">Book Free Demo</button>
-            <a href="https://wa.me/919165761919?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%93%8A%20I%20want%20to%20enquire%20about%20the%20%2ATally%20Prime%20with%20GST%20%26%20Accounting%2A%20course%20at%20Utkrist%20Computer%20Academy%2C%20Ambikapur.%20%F0%9F%92%BC%F0%9F%93%91%20Please%20share%20batch%20details%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+            <a href="https://wa.me/919165761919?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%93%8A%20I%20want%20to%20enquire%20about%20the%20%2ATally%20Prime%20with%20GST%20%26%20Accounting%2A%20course%20at%20Utkrist%20Computer%20Academy%2C%20Ambikapur.%20%F0%9F%92%BC%F0%9F%93%91%20Please%20share%20details%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
           </div>
         </div>
       </div>
@@ -2042,8 +2217,10 @@
               <label class="form-label">Course Interested</label>
               <select name="courseInterested" class="form-control">
                 <optgroup label="🗣️ Spoken English &amp; Personality">
-                  <option value="Basic Spoken English">Basic Spoken English (Hindi to English)</option>
+                  <option value="Advance Spoken English (Morning Batch)">Advance Spoken English (Morning Batch)</option>
+                  <option value="Advance Spoken English (Evening Batch)">Advance Spoken English (Evening Batch)</option>
                   <option value="Advanced Spoken English & Fluency">Advanced Spoken English &amp; Fluency</option>
+                  <option value="Complete Advance English Course">Complete Advance English Course (6 Months)</option>
                   <option value="Public Speaking & Stage Confidence">Public Speaking &amp; Stage Confidence</option>
                   <option value="Personality Development & Grooming">Personality Development &amp; Grooming</option>
                   <option value="Interview Prep & Group Discussion">Interview Prep &amp; Group Discussion</option>
@@ -2288,6 +2465,25 @@
           <p style="font-size: 0.85rem; color: var(--color-amber-400); font-weight: 700;">
             Learn Today • Speak Tomorrow with Confidence • Grow Digitally
           </p>
+
+          <!-- Footer Social Media Strip -->
+          <div class="footer-social-wrap">
+            <span class="footer-social-label">Follow us on:</span>
+            <div class="footer-social-links">
+              <a href="https://www.instagram.com/ecel_english_ambikapur?dlrf=MTVpcTNuNTk3emRtNg==" target="_blank" rel="noopener noreferrer" class="footer-social-chip chip-ecel" title="Follow ECEL English on Instagram">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span>ECEL Instagram</span>
+              </a>
+              <a href="https://www.instagram.com/utkristcomputer?srtk=cDExMGd0dDk4N2pl" target="_blank" rel="noopener noreferrer" class="footer-social-chip chip-uca" title="Follow Utkrist Computer Academy on Instagram">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span>UCA Instagram</span>
+              </a>
+              <a href="https://youtube.com/@ecelambikapur?si=9-jF37J2_g_M57mM" target="_blank" rel="noopener noreferrer" class="footer-social-chip chip-yt" title="Subscribe to ECEL English on YouTube">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>ECEL YouTube</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         <div>
@@ -2310,7 +2506,8 @@
             <li><a href="#computer-courses">PGDCA (Post Graduate Diploma)</a></li>
             <li><a href="#computer-courses">Basic Computer Course &amp; Typing</a></li>
             <li><a href="#computer-courses">Tally Prime with GST</a></li>
-            <li><a href="#ecel-english">Basic Spoken English</a></li>
+            <li><a href="#ecel-english">Advance Spoken English</a></li>
+            <li><a href="#ecel-english">Complete Advance English (6 Mo)</a></li>
             <li><a href="#ecel-english">Public Speaking &amp; Stage Drills</a></li>
             <li><a href="#ecel-english">Interview Prep &amp; GD</a></li>
           </ul>
@@ -2351,24 +2548,39 @@
 
       <div class="footer-bottom">
         <p>&copy; 2026 ECEL and Utkrist Computer Academy, Ambikapur. All rights reserved.</p>
-        <p class="dev-bottom-line">Developed &amp; Maintained with ❤️ by <strong>Durgesh Patel (MCA)</strong> • <a href="tel:+917489771078" style="color: #38bdf8; font-weight: 700; text-decoration: underline;">+91 7489771078</a></p>
         <p>Banaras Road, Near Mishra Sweets, RG Tower, Ambikapur, Chhattisgarh 497001 • Mob: +91 89624 69909, +91 91657 61919</p>
       </div>
     </div>
   </footer>
 
-  <!-- 13. Mobile Sticky Bottom Bar -->
-  <div class="mobile-sticky-bar" aria-label="Mobile Action Bar">
-    <a href="tel:+918962469909" class="sticky-bar-btn sticky-bar-call">
-      📞 Call
-    </a>
-    <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%8C%9F%20I%20want%20to%20enquire%20about%20%2ASpoken%20English%20%F0%9F%97%A3%EF%B8%8F%20%26%20Computer%20Courses%20%F0%9F%92%BB%20%28DCA%2FPGDCA%2FBasic%29%2A%20at%20%2AECEL%20%26%20Utkrist%20Academy%2A%2C%20Ambikapur.%20%F0%9F%93%9A%E2%9C%A8%20Please%20guide%20me%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="sticky-bar-btn sticky-bar-wa">
-      💬 WhatsApp
-    </a>
-    <button type="button" class="sticky-bar-btn sticky-bar-demo open-demo-modal">
-      📅 Book Demo
-    </button>
-  </div>
+  <!-- 13. Mobile App-Style Bottom Action Bar (2 Buttons in 1 Row - Static Dock) -->
+  <aside class="mobile-sticky-bar" aria-label="Mobile Action Bar">
+    <div class="mobile-bar-inner">
+      <a href="tel:+918962469909" class="app-action-btn app-call-btn" aria-label="Call +91 89624 69909 directly">
+        <div class="app-btn-icon-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <div class="app-btn-text">
+          <span class="app-btn-sub">Direct Call</span>
+          <span class="app-btn-main">Call Now</span>
+        </div>
+      </a>
+
+      <a href="https://wa.me/918962469909?text=%F0%9F%91%8B%20%2A%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Sir%21%2A%20%F0%9F%8C%9F%20I%20want%20to%20enquire%20about%20%2ASpoken%20English%20%F0%9F%97%A3%EF%B8%8F%20%26%20Computer%20Courses%20%F0%9F%92%BB%2A%20at%20%2AECEL%20%26%20Utkrist%20Academy%2A%2C%20Ambikapur.%20%F0%9F%93%9A%E2%9C%A8%20Please%20guide%20me%21%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="app-action-btn app-wa-btn" aria-label="Chat with counselor on WhatsApp">
+        <div class="app-btn-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.711 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </div>
+        <div class="app-btn-text">
+          <span class="app-btn-sub">Instant WhatsApp</span>
+          <span class="app-btn-main">WhatsApp</span>
+        </div>
+      </a>
+    </div>
+  </aside>
 
   <!-- 14. Floating Desktop Actions (Direct Call & WhatsApp) -->
   <div class="floating-actions" aria-label="Quick Contact Actions">
@@ -2421,8 +2633,10 @@
             <label class="form-label">Course Interested</label>
             <select name="courseInterested" id="modalCourseInterested" class="form-control">
               <optgroup label="🗣️ Spoken English &amp; Personality">
-                <option value="Basic Spoken English">Basic Spoken English (Hindi to English)</option>
+                <option value="Advance Spoken English (Morning Batch)">Advance Spoken English (Morning Batch)</option>
+                <option value="Advance Spoken English (Evening Batch)">Advance Spoken English (Evening Batch)</option>
                 <option value="Advanced Spoken English & Fluency">Advanced Spoken English &amp; Fluency</option>
+                <option value="Complete Advance English Course">Complete Advance English Course (6 Months)</option>
                 <option value="Public Speaking & Stage Confidence">Public Speaking &amp; Stage Confidence</option>
                 <option value="Personality Development & Grooming">Personality Development &amp; Grooming</option>
                 <option value="Interview Prep & Group Discussion">Interview Prep &amp; Group Discussion</option>

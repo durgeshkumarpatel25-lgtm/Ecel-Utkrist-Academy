@@ -35,6 +35,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Mobile Drawer Registration Accordion Toggle
+  const mobileRegBtn = document.getElementById("mobileRegBtn");
+  const mobileRegSubmenu = document.getElementById("mobileRegSubmenu");
+  if (mobileRegBtn && mobileRegSubmenu) {
+    mobileRegBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = mobileRegSubmenu.classList.toggle("open");
+      mobileRegBtn.classList.toggle("open", isOpen);
+      mobileRegBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  }
+
+  // Close mobile drawer when clicking on any subnav link
+  const mobileSubnavLinks = document.querySelectorAll(".mobile-subnav-link");
+  mobileSubnavLinks.forEach((sublink) => {
+    sublink.addEventListener("click", () => {
+      closeMobileMenu();
+    });
+  });
+
+  // Desktop Registration Dropdown Toggle for click/touch devices
+  const desktopRegDropdown = document.getElementById("desktopRegDropdown");
+  const regDropdownBtn = document.getElementById("regDropdownBtn");
+  if (desktopRegDropdown && regDropdownBtn) {
+    regDropdownBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isOpen = desktopRegDropdown.classList.toggle("open");
+      regDropdownBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!desktopRegDropdown.contains(e.target)) {
+        desktopRegDropdown.classList.remove("open");
+        regDropdownBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   // ===========================================================================
   // 2. Sticky Header & Active Nav ScrollSpy
   // ===========================================================================
@@ -77,11 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCourseSelect = document.getElementById("modalCourseInterested");
   const openDemoButtons = document.querySelectorAll(".open-demo-modal");
 
-  window.openDemoModal = function(courseName) {
+  window.openDemoModal = function (courseName) {
     if (courseName && modalCourseSelect) {
       for (let i = 0; i < modalCourseSelect.options.length; i++) {
         if (modalCourseSelect.options[i].text.toLowerCase().includes(courseName.toLowerCase()) ||
-            modalCourseSelect.options[i].value.toLowerCase().includes(courseName.toLowerCase())) {
+          modalCourseSelect.options[i].value.toLowerCase().includes(courseName.toLowerCase())) {
           modalCourseSelect.selectedIndex = i;
           break;
         }
@@ -93,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.closeDemoModal = function() {
+  window.closeDemoModal = function () {
     if (demoModal) {
       demoModal.classList.remove("open");
       document.body.style.overflow = "";
@@ -197,6 +235,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (whatsappConfirmBtn) {
             const courseEmojis = {
+              "Advance Spoken English (Morning Batch)": "🗣️ (Morning Fluency & Speaking)",
+              "Advance Spoken English (Evening Batch)": "🗣️ (Evening Fluency & Speaking)",
+              "Complete Advance English Course": "🌟 (6-Month Complete Fluency & Personality)",
               "Basic Spoken English": "🗣️ (Hindi to English Transition)",
               "Advanced Spoken English & Fluency": "🔥 (Fluency & Accent Mastery)",
               "Public Speaking & Stage Confidence": "🎙️ (Stage Presence & Mic Practice)",
@@ -213,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const courseBadge = courseEmojis[course] || "📖";
 
-            const richEmojiMessage = 
+            const richEmojiMessage =
               `👋 *नमस्ते Sir / Team ECEL & Utkrist Computer Academy!*\n\n` +
               `🎯 *New Free Demo Class Registration*\n` +
               `━━━━━━━━━━━━━━━━━━━━━━\n` +
@@ -401,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===========================================================================
   let quizScores = { 1: 0, 2: 0, 3: 0 };
 
-  window.handleQuizAnswer = function(step, score) {
+  window.handleQuizAnswer = function (step, score) {
     quizScores[step] = score;
 
     const progress = document.getElementById("quizProgressBar");
@@ -455,7 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (descEl) descEl.textContent = diagnosis;
 
       if (waActionEl) {
-        const richMsg = 
+        const richMsg =
           `👋 *नमस्ते Sir / Team ECEL & Utkrist Computer Academy!*\n\n` +
           `🎯 *I completed the English Hesitation Test on your website!*\n` +
           `━━━━━━━━━━━━━━━━━━━━━━\n` +
@@ -471,7 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.resetQuiz = function() {
+  window.resetQuiz = function () {
     quizScores = { 1: 0, 2: 0, 3: 0 };
     const step1 = document.getElementById("quizStep1");
     const step2 = document.getElementById("quizStep2");
@@ -516,7 +557,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImg = document.getElementById("lightboxImg");
   const lightboxCloseBtn = document.getElementById("lightboxCloseBtn");
 
-  window.openBannerLightbox = function(imageSrc) {
+  window.openBannerLightbox = function (imageSrc) {
     if (bannerLightbox && lightboxImg) {
       lightboxImg.src = imageSrc;
       bannerLightbox.classList.add("open");
@@ -524,7 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.closeBannerLightbox = function() {
+  window.closeBannerLightbox = function () {
     if (bannerLightbox) {
       bannerLightbox.classList.remove("open");
       document.body.style.overflow = "";

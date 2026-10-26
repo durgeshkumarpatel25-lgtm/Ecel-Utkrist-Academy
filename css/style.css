@@ -386,6 +386,56 @@ svg {
   color: #ffffff;
 }
 
+/* Top Bar Social Media Strip */
+.top-bar-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.top-bar-social-label {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  margin-right: 0.2rem;
+  white-space: nowrap;
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  color: #ffffff !important;
+  white-space: nowrap;
+}
+
+.social-icon-btn svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-1.5px) scale(1.04);
+}
+
+.insta-ecel,
+.insta-uca {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  box-shadow: 0 2px 8px rgba(220, 39, 67, 0.35);
+}
+
+.yt-ecel {
+  background-color: #ff0000;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.35);
+}
+
+
 /* 2. Header & Sticky Nav (100% Single-Line Desktop & Clean Mobile) */
 .header {
   position: sticky;
@@ -661,6 +711,144 @@ svg {
   font-weight: 800;
 }
 
+/* Desktop Navigation Dropdown (Registration) */
+.nav-item-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dropdown-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+@media (min-width: 1240px) {
+  .dropdown-toggle-btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.84rem;
+  }
+}
+
+.dropdown-toggle-btn:hover,
+.nav-item-dropdown:hover .dropdown-toggle-btn,
+.nav-item-dropdown.open .dropdown-toggle-btn {
+  color: var(--color-navy-800);
+  background-color: var(--color-bg-slate);
+}
+
+.dropdown-chevron-icon {
+  transition: transform var(--transition-fast);
+  stroke: currentColor;
+}
+
+.nav-item-dropdown:hover .dropdown-chevron-icon,
+.nav-item-dropdown.open .dropdown-chevron-icon {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 290px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.14);
+  padding: 0.6rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.35rem;
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-item-dropdown:hover .nav-dropdown-menu,
+.nav-item-dropdown:focus-within .nav-dropdown-menu,
+.nav-item-dropdown.open .nav-dropdown-menu {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-navy-950);
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.dropdown-menu-item:hover {
+  background-color: var(--color-bg-slate);
+  border-color: var(--color-border);
+  transform: translateX(2px);
+}
+
+.dropdown-item-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.22rem 0.55rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.ecel-badge {
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.uca-badge {
+  background: rgba(2, 132, 199, 0.15);
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.dropdown-item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+
+.dropdown-item-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  line-height: 1.25;
+}
+
+.dropdown-item-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+
 /* Header CTAs */
 .header-actions {
   display: flex;
@@ -855,6 +1043,167 @@ svg {
   background-color: var(--color-navy-50);
   color: var(--color-navy-800);
 }
+
+/* Mobile Drawer Registration Accordion */
+.mobile-nav-dropdown-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+  color: var(--color-text-main);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.mobile-dropdown-btn:hover,
+.mobile-dropdown-btn.open {
+  background-color: var(--color-navy-50);
+  color: var(--color-navy-800);
+}
+
+.mobile-arrow-icon {
+  transition: transform var(--transition-fast);
+  stroke: currentColor;
+}
+
+.mobile-dropdown-btn.open .mobile-arrow-icon {
+  transform: rotate(180deg);
+}
+
+.mobile-subnav-list {
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.35rem 0.5rem 0.65rem 0.85rem;
+}
+
+.mobile-subnav-list.open {
+  display: flex;
+}
+
+.mobile-subnav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: var(--color-bg-slate);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.mobile-subnav-link:active {
+  background-color: var(--color-navy-50);
+}
+
+.subnav-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.ecel-pill {
+  background: rgba(245, 158, 11, 0.2);
+  color: #b45309;
+}
+
+.uca-pill {
+  background: rgba(2, 132, 199, 0.2);
+  color: #0284c7;
+}
+
+.subnav-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.subnav-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--color-navy-950);
+  line-height: 1.2;
+}
+
+.subnav-desc {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* Mobile Drawer Socials Strip */
+.mobile-drawer-socials {
+  margin: 1rem 0;
+  padding: 0.85rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.03), rgba(30, 58, 138, 0.05));
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.mobile-social-title {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-navy-900);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mobile-social-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.mobile-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 8px;
+  color: #ffffff !important;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+}
+
+.mobile-social-btn:active {
+  transform: scale(0.98);
+}
+
+.mobile-social-btn svg {
+  flex-shrink: 0;
+}
+
+.mobile-insta-ecel,
+.mobile-insta-uca {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  box-shadow: 0 2px 8px rgba(220, 39, 67, 0.25);
+}
+
+.mobile-yt-ecel {
+  background-color: #ff0000;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.25);
+}
+
 
 /* 3. Hero Section */
 .hero {
@@ -2760,65 +3109,168 @@ svg {
   }
 }
 
-/* 13. Mobile Sticky Bottom Bar */
+/* Footer Social Media Strip */
+.footer-social-wrap {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-social-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-amber-400);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-social-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff !important;
+  transition: all var(--transition-fast);
+}
+
+.footer-social-chip:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.footer-social-chip svg {
+  flex-shrink: 0;
+}
+
+.chip-ecel,
+.chip-uca {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  box-shadow: 0 2px 8px rgba(220, 39, 67, 0.3);
+}
+
+.chip-yt {
+  background-color: #ff0000;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+}
+
+/* 13. Mobile App-Style Bottom Action Bar (2 Buttons in 1 Row - Static Dock) */
 .mobile-sticky-bar {
   position: fixed;
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid var(--color-border);
-  padding: 0.5rem 0.75rem max(0.5rem, env(safe-area-inset-bottom));
-  z-index: 100;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 0.55rem 0.85rem max(0.55rem, env(safe-area-inset-bottom));
+  z-index: 999;
+  box-shadow: 0 -8px 25px rgba(15, 23, 42, 0.12);
+  display: block;
 }
 
 @media (min-width: 768px) {
   .mobile-sticky-bar {
-    display: none;
+    display: none !important;
   }
 }
 
-.sticky-bar-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.4rem;
-  border-radius: var(--radius-md);
-  font-size: 0.78rem;
-  font-weight: 800;
-  min-height: 44px;
-  text-decoration: none;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+.mobile-bar-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.sticky-bar-btn:active {
+.app-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  min-height: 48px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-action-btn:active {
   transform: scale(0.96);
 }
 
-.sticky-bar-call {
-  background-color: var(--color-navy-50);
-  color: var(--color-navy-900);
-  border: 1px solid var(--color-border);
+.app-btn-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.2);
 }
 
-.sticky-bar-wa {
-  background-color: var(--color-whatsapp);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+.app-btn-icon-box svg {
+  display: block;
 }
 
-.sticky-bar-demo {
-  background: linear-gradient(135deg, var(--color-amber-500), #ea580c);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+.app-btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
 }
+
+.app-btn-sub {
+  font-size: 0.66rem;
+  font-weight: 600;
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.app-btn-main {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.app-call-btn {
+  background: linear-gradient(135deg, #090e24 0%, #1e3a8a 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.app-wa-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 74px !important;
+  }
+}
+
 
 /* 14. Floating Desktop Actions (Call & WhatsApp) */
 .floating-actions {
@@ -2826,7 +3278,7 @@ svg {
   bottom: 2rem;
   right: 2rem;
   z-index: 95;
-  display: none;
+  display: none !important;
   flex-direction: column;
   align-items: flex-end;
   gap: 0.65rem;
@@ -2834,7 +3286,7 @@ svg {
 
 @media (min-width: 768px) {
   .floating-actions {
-    display: flex;
+    display: flex !important;
   }
 }
 
