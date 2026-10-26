@@ -757,20 +757,11 @@ svg {
   transition: all var(--transition-fast);
   text-decoration: none;
 }
-  padding: 0.35rem 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--color-text-muted);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all var(--transition-fast);
-  text-decoration: none;
-}
 
-@media (min-width: 1240px) {
+@media (min-width: 1360px) {
   .nav-link {
-    padding: 0.4rem 0.65rem;
-    font-size: 0.84rem;
+    padding: 0.38rem 0.6rem;
+    font-size: 0.83rem;
   }
 }
 
@@ -957,7 +948,21 @@ svg {
   white-space: nowrap;
 }
 
-@media (min-width: 1240px) {
+.call-btn-full {
+  display: none;
+}
+
+.call-btn-short {
+  display: inline;
+}
+
+@media (min-width: 1360px) {
+  .call-btn-full {
+    display: inline;
+  }
+  .call-btn-short {
+    display: none;
+  }
   .header-call-btn {
     padding: 0.48rem 0.85rem;
     font-size: 0.84rem;
