@@ -812,6 +812,21 @@ svg {
   position: relative;
   display: inline-flex;
   align-items: center;
+  padding-bottom: 8px;
+  margin-bottom: -8px;
+}
+
+/* Invisible bridge extending down so moving cursor from toggle button to menu never loses hover */
+.nav-item-dropdown::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  right: -20px;
+  height: 18px;
+  background: transparent;
+  z-index: 145;
+  pointer-events: auto;
 }
 
 .dropdown-toggle-btn {
@@ -878,12 +893,12 @@ svg {
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 2px);
   left: 50%;
-  transform: translateX(-50%) translateY(12px) scale(0.96);
+  transform: translateX(-50%) translateY(8px) scale(0.97);
   min-width: 295px;
   background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 14px;
   box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(30, 58, 138, 0.06);
   padding: 0.65rem;
@@ -892,9 +907,21 @@ svg {
   gap: 0.35rem;
   z-index: 150;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s ease;
+}
+
+/* Invisible bridge at the top of dropdown menu to catch cursor motion */
+.nav-dropdown-menu::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -20px;
+  right: -20px;
+  height: 20px;
+  background: transparent;
+  pointer-events: auto;
 }
 
 .nav-dropdown-menu::before {
@@ -905,6 +932,7 @@ svg {
   right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--color-amber-500), #2563eb);
+  border-radius: 14px 14px 0 0;
 }
 
 .nav-item-dropdown:hover .nav-dropdown-menu,
@@ -912,6 +940,7 @@ svg {
 .nav-item-dropdown.open .nav-dropdown-menu {
   display: flex;
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0) scale(1);
 }

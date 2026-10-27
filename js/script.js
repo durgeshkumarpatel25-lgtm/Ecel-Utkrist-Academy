@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Desktop Dropdown Toggles for click/touch devices (Registration & Test Paper)
+  // Desktop Dropdown Persistence on Hover & Click (Registration & Test Paper)
   const dropdownPairs = [
     { dropdownId: "desktopRegDropdown", btnId: "regDropdownBtn" },
     { dropdownId: "desktopTestPaperDropdown", btnId: "testPaperDropdownBtn" }
@@ -125,23 +126,60 @@ document.addEventListener("DOMContentLoaded", () => {
   dropdownPairs.forEach(({ dropdownId, btnId }) => {
     const dropdown = document.getElementById(dropdownId);
     const btn = document.getElementById(btnId);
-    if (dropdown && btn) {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        // Close other dropdowns
-        dropdownPairs.forEach((other) => {
-          if (other.dropdownId !== dropdownId) {
-            const otherEl = document.getElementById(other.dropdownId);
-            const otherBtn = document.getElementById(other.btnId);
-            if (otherEl) otherEl.classList.remove("open");
-            if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
-          }
-        });
-        const isOpen = dropdown.classList.toggle("open");
-        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    if (!dropdown || !btn) return;
+
+    let closeTimer = null;
+
+    function openDropdown() {
+      clearTimeout(closeTimer);
+      // Close other dropdowns
+      dropdownPairs.forEach((other) => {
+        if (other.dropdownId !== dropdownId) {
+          const otherEl = document.getElementById(other.dropdownId);
+          const otherBtn = document.getElementById(other.btnId);
+          if (otherEl) otherEl.classList.remove("open");
+          if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+        }
       });
+      dropdown.classList.add("open");
+      btn.setAttribute("aria-expanded", "true");
     }
+
+    function scheduleCloseDropdown() {
+      clearTimeout(closeTimer);
+      // 280ms grace window so cursor moving across gap or between button & submenu never closes
+      closeTimer = setTimeout(() => {
+        dropdown.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }, 280);
+    }
+
+    // Keep open as long as mouse is anywhere inside dropdown or submenu
+    dropdown.addEventListener("mouseenter", openDropdown);
+    dropdown.addEventListener("mouseleave", scheduleCloseDropdown);
+
+    // Support click toggle
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      clearTimeout(closeTimer);
+      if (dropdown.classList.contains("open")) {
+        dropdown.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      } else {
+        openDropdown();
+      }
+    });
+
+    // When clicking any link inside, close cleanly
+    const menuLinks = dropdown.querySelectorAll(".dropdown-menu-item");
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        clearTimeout(closeTimer);
+        dropdown.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      });
+    });
   });
 
   document.addEventListener("click", (e) => {
