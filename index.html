@@ -79,7 +79,7 @@
   <link rel="apple-touch-icon" href="assets/logo_uca_ecel_badge.jpg" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=15" />
+  <link rel="stylesheet" href="css/style.css?v=16" />
 
   <!-- Schema.org Comprehensive JSON-LD Structured Data for Local Ambikapur SEO -->
   <script type="application/ld+json">
@@ -363,7 +363,9 @@
       <div class="header-actions">
         <div class="desktop-actions">
           <a href="tel:+918962469909" class="btn btn-call header-call-btn" aria-label="Call +91 89624 69909">
-            <span class="call-btn-icon">📞</span>
+            <span class="call-btn-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </span>
             <span class="call-btn-full">+91 89624 69909</span>
             <span class="call-btn-short">Call</span>
           </a>
@@ -378,9 +380,13 @@
           <span>Call</span>
         </a>
 
-        <!-- Mobile Hamburger Button -->
-        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <!-- Mobile Hamburger Button with Animated Bars -->
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-icon-box">
+            <span class="hamburger-line line-top"></span>
+            <span class="hamburger-line line-mid"></span>
+            <span class="hamburger-line line-bot"></span>
+          </span>
         </button>
       </div>
     </div>
@@ -390,8 +396,8 @@
   <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
 
   <!-- Mobile Drawer Menu -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div>
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="mobile-drawer-scroll">
       <div class="mobile-drawer-header">
         <div class="brand-logo">
           <div class="brand-logos-group">
@@ -403,77 +409,155 @@
             </div>
           </div>
           <div>
-            <span class="logo-text-title" style="font-size: 1rem;">ECEL &amp; Utkrist</span>
-            <span class="logo-text-sub">RG Tower, Ambikapur</span>
+            <span class="logo-text-title mobile-header-title">ECEL &amp; Utkrist</span>
+            <span class="logo-text-sub mobile-header-sub">RG Tower, Ambikapur</span>
           </div>
         </div>
-        <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">✕</button>
+        <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
       </div>
 
       <ul class="mobile-nav-links">
-        <li><a href="#home" class="mobile-nav-link">Home</a></li>
-        <li><a href="#ecel-english" class="mobile-nav-link">🗣️ ECEL English Learning Centre</a></li>
-        <li><a href="#computer-courses" class="mobile-nav-link">💻 Utkrist Computer Academy (DCA / PGDCA)</a></li>
-
-        <!-- Registration Accordion with 2 Sub-Menus for Mobile placed before Level Test -->
-        <li class="mobile-nav-dropdown-item">
-          <button type="button" class="mobile-dropdown-btn" id="mobileRegBtn" aria-expanded="true">
-            <span style="display: flex; align-items: center; gap: 0.5rem;">
-              <span>📝</span>
-              <strong>Registration Forms</strong>
+        <li>
+          <a href="#home" class="mobile-nav-link active">
+            <span class="nav-icon-badge nav-icon-blue">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             </span>
-            <svg class="mobile-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span class="mobile-link-text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#ecel-english" class="mobile-nav-link">
+            <span class="nav-icon-badge nav-icon-amber">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </span>
+            <span class="mobile-link-text">ECEL English Learning Centre</span>
+          </a>
+        </li>
+        <li>
+          <a href="#computer-courses" class="mobile-nav-link">
+            <span class="nav-icon-badge nav-icon-cyan">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </span>
+            <div class="mobile-link-content">
+              <span class="mobile-link-text">Utkrist Computer Academy</span>
+              <span class="mobile-pill-tag">DCA / PGDCA</span>
+            </div>
+          </a>
+        </li>
+
+        <!-- Registration Accordion with 2 Sub-Menus for Mobile (Closed by default, animates open on click) -->
+        <li class="mobile-nav-dropdown-item">
+          <button type="button" class="mobile-dropdown-btn" id="mobileRegBtn" aria-expanded="false" aria-controls="mobileRegSubmenu">
+            <div class="mobile-dropdown-btn-left">
+              <span class="nav-icon-badge nav-icon-purple">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </span>
+              <span class="mobile-link-text">Registration Forms</span>
+              <span class="mobile-badge-count">2</span>
+            </div>
+            <span class="mobile-arrow-wrap">
+              <svg class="mobile-arrow-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
           </button>
-          <div class="mobile-subnav-list open" id="mobileRegSubmenu">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfawHfiK-KFqZUN_r2-QxSt0ongC7XjoTu4z19m4qn3rzFSIQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="mobile-subnav-link">
-              <span class="subnav-pill ecel-pill">ECEL</span>
-              <div class="subnav-text">
-                <span class="subnav-title">ECEL Registration Form ↗</span>
-                <span class="subnav-desc">Spoken English &amp; Public Speaking</span>
-              </div>
-            </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMVUqi2JGaFaoIVGIhxxlsR5QBCBJackSzZGAe8QxSWBWBtg/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="mobile-subnav-link">
-              <span class="subnav-pill uca-pill">UCA</span>
-              <div class="subnav-text">
-                <span class="subnav-title">UCA Registration Form ↗</span>
-                <span class="subnav-desc">DCA, PGDCA, Basic &amp; Tally</span>
-              </div>
-            </a>
+          <div class="mobile-subnav-list" id="mobileRegSubmenu" role="region" aria-labelledby="mobileRegBtn">
+            <div class="mobile-subnav-inner">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfawHfiK-KFqZUN_r2-QxSt0ongC7XjoTu4z19m4qn3rzFSIQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="mobile-subnav-link">
+                <span class="subnav-pill ecel-pill">ECEL</span>
+                <div class="subnav-text">
+                  <span class="subnav-title">ECEL Registration Form <span class="external-arrow">↗</span></span>
+                  <span class="subnav-desc">Spoken English &amp; Public Speaking</span>
+                </div>
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMVUqi2JGaFaoIVGIhxxlsR5QBCBJackSzZGAe8QxSWBWBtg/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="mobile-subnav-link">
+                <span class="subnav-pill uca-pill">UCA</span>
+                <div class="subnav-text">
+                  <span class="subnav-title">UCA Registration Form <span class="external-arrow">↗</span></span>
+                  <span class="subnav-desc">DCA, PGDCA, Basic &amp; Tally</span>
+                </div>
+              </a>
+            </div>
           </div>
         </li>
 
-        <!-- Test Paper Accordion with Sub-Menu (Test Link) for Mobile placed after Registration -->
+        <!-- Test Paper Accordion with Sub-Menu (Test Link) for Mobile (Closed by default, animates open on click) -->
         <li class="mobile-nav-dropdown-item">
-          <button type="button" class="mobile-dropdown-btn" id="mobileTestPaperBtn" aria-expanded="true">
-            <span style="display: flex; align-items: center; gap: 0.5rem;">
-              <span>📋</span>
-              <strong>Test Paper</strong>
+          <button type="button" class="mobile-dropdown-btn" id="mobileTestPaperBtn" aria-expanded="false" aria-controls="mobileTestPaperSubmenu">
+            <div class="mobile-dropdown-btn-left">
+              <span class="nav-icon-badge nav-icon-emerald">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              </span>
+              <span class="mobile-link-text">Test Paper</span>
+              <span class="mobile-badge-count">1</span>
+            </div>
+            <span class="mobile-arrow-wrap">
+              <svg class="mobile-arrow-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
-            <svg class="mobile-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
-          <div class="mobile-subnav-list open" id="mobileTestPaperSubmenu">
-            <a href="https://testmoz.com/q/15019174" target="_blank" rel="noopener noreferrer" class="mobile-subnav-link">
-              <span class="subnav-pill test-pill">ONLINE</span>
-              <div class="subnav-text">
-                <span class="subnav-title">Test Link ↗</span>
-                <span class="subnav-desc">Online Test Paper (Testmoz)</span>
-              </div>
-            </a>
+          <div class="mobile-subnav-list" id="mobileTestPaperSubmenu" role="region" aria-labelledby="mobileTestPaperBtn">
+            <div class="mobile-subnav-inner">
+              <a href="https://testmoz.com/q/15019174" target="_blank" rel="noopener noreferrer" class="mobile-subnav-link">
+                <span class="subnav-pill test-pill">ONLINE</span>
+                <div class="subnav-text">
+                  <span class="subnav-title">Test Link <span class="external-arrow">↗</span></span>
+                  <span class="subnav-desc">Online Test Paper</span>
+                </div>
+              </a>
+            </div>
           </div>
         </li>
 
-        <li><a href="#hesitation-test" class="mobile-nav-link">⚡ Level Test (60s)</a></li>
-        <li><a href="#why-us" class="mobile-nav-link">Why Us</a></li>
-        <li><a href="#batches-fees" class="mobile-nav-link">Batches &amp; Fees</a></li>
-
-        <li><a href="#faqs" class="mobile-nav-link">FAQs</a></li>
-        <li><a href="#contact" class="mobile-nav-link">Contact &amp; Location</a></li>
+        <li>
+          <a href="#hesitation-test" class="mobile-nav-link">
+            <span class="nav-icon-badge nav-icon-amber">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </span>
+            <div class="mobile-link-content">
+              <span class="mobile-link-text">Level Test</span>
+              <span class="mobile-pill-tag tag-amber">60 Seconds</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#why-us" class="mobile-nav-link">
+            <span class="nav-icon-badge nav-icon-indigo">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </span>
+            <span class="mobile-link-text">Why Choose Us</span>
+          </a>
+        </li>
+        <li>
+          <a href="#batches-fees" class="mobile-nav-link">
+            <span class="nav-icon-badge nav-icon-teal">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </span>
+            <span class="mobile-link-text">Batches &amp; Fees</span>
+          </a>
+        </li>
+        <li>
+          <a href="#faqs" class="mobile-nav-link">
+            <span class="nav-icon-badge nav-icon-slate">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </span>
+            <span class="mobile-link-text">FAQs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="mobile-nav-link">
+            <span class="nav-icon-badge nav-icon-rose">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </span>
+            <span class="mobile-link-text">Contact &amp; Location</span>
+          </a>
+        </li>
       </ul>
 
       <!-- Mobile Drawer Follow Us Section -->
       <div class="mobile-drawer-socials">
         <div class="mobile-social-title">
-          <span>🌟</span> Follow Us On
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span>Follow Us</span>
         </div>
         <div class="mobile-social-grid">
           <a href="https://www.instagram.com/ecel_english_ambikapur?dlrf=MTVpcTNuNTk3emRtNg==" target="_blank" rel="noopener noreferrer" class="mobile-social-btn mobile-insta-ecel">
@@ -492,16 +576,21 @@
       </div>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
-      <button type="button" class="btn btn-primary btn-block open-demo-modal" onclick="closeMobileMenu()">
+    <!-- Mobile Drawer Action Buttons Sticky Footer -->
+    <div class="mobile-drawer-footer">
+      <button type="button" class="btn btn-primary btn-block open-demo-modal mobile-drawer-demo-btn">
         Book Free Demo Class
       </button>
-      <a href="tel:+918962469909" class="btn btn-outline btn-block">
-        Call +91 89624 69909
-      </a>
-      <a href="tel:+919165761919" class="btn btn-outline btn-block" style="font-size: 0.9rem;">
-        Call +91 91657 61919
-      </a>
+      <div class="mobile-drawer-call-grid">
+        <a href="tel:+918962469909" class="btn btn-drawer-call" aria-label="Call ECEL Ambikapur">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>89624 69909</span>
+        </a>
+        <a href="tel:+919165761919" class="btn btn-drawer-call" aria-label="Call Utkrist Ambikapur">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>91657 61919</span>
+        </a>
+      </div>
     </div>
   </div>
 

@@ -5,7 +5,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // ===========================================================================
-  // 1. Mobile Hamburger Drawer
+  // 1. Mobile Hamburger Drawer & Animated Accordion
   // ===========================================================================
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   const mobileDrawer = document.getElementById("mobileDrawer");
@@ -16,40 +16,97 @@ document.addEventListener("DOMContentLoaded", () => {
   function openMobileMenu() {
     if (mobileDrawer) mobileDrawer.classList.add("open");
     if (mobileDrawerOverlay) mobileDrawerOverlay.classList.add("open");
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.add("is-active");
+      hamburgerBtn.setAttribute("aria-expanded", "true");
+    }
     document.body.style.overflow = "hidden";
   }
 
   function closeMobileMenu() {
     if (mobileDrawer) mobileDrawer.classList.remove("open");
     if (mobileDrawerOverlay) mobileDrawerOverlay.classList.remove("open");
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.remove("is-active");
+      hamburgerBtn.setAttribute("aria-expanded", "false");
+    }
     document.body.style.overflow = "";
   }
 
-  if (hamburgerBtn) hamburgerBtn.addEventListener("click", openMobileMenu);
+  // Expose to window for global invocation (modals / buttons)
+  window.openMobileMenu = openMobileMenu;
+  window.closeMobileMenu = closeMobileMenu;
+
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (mobileDrawer && mobileDrawer.classList.contains("open")) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+  }
+
   if (mobileDrawerClose) mobileDrawerClose.addEventListener("click", closeMobileMenu);
   if (mobileDrawerOverlay) mobileDrawerOverlay.addEventListener("click", closeMobileMenu);
 
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileDrawer && mobileDrawer.classList.contains("open")) {
+      closeMobileMenu();
+    }
+  });
+
   mobileNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      mobileNavLinks.forEach((l) => l.classList.remove("active"));
+      link.classList.add("active");
       closeMobileMenu();
     });
   });
 
   // Mobile Drawer Accordion Toggles (Registration & Test Paper)
-  function setupMobileAccordion(btnId, submenuId) {
+  // Submenus stay closed by default and smoothly animate on tap
+  const mobileAccordionPairs = [
+    { btnId: "mobileRegBtn", submenuId: "mobileRegSubmenu" },
+    { btnId: "mobileTestPaperBtn", submenuId: "mobileTestPaperSubmenu" }
+  ];
+
+  mobileAccordionPairs.forEach(({ btnId, submenuId }) => {
     const btn = document.getElementById(btnId);
     const submenu = document.getElementById(submenuId);
     if (btn && submenu) {
       btn.addEventListener("click", (e) => {
+        e.preventDefault();
         e.stopPropagation();
-        const isOpen = submenu.classList.toggle("open");
-        btn.classList.toggle("open", isOpen);
-        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        const willOpen = !submenu.classList.contains("open");
+
+        // Close other accordion for clean single-expanded view
+        mobileAccordionPairs.forEach((other) => {
+          if (other.btnId !== btnId) {
+            const otherBtn = document.getElementById(other.btnId);
+            const otherSub = document.getElementById(other.submenuId);
+            if (otherSub) otherSub.classList.remove("open");
+            if (otherBtn) {
+              otherBtn.classList.remove("open");
+              otherBtn.setAttribute("aria-expanded", "false");
+            }
+          }
+        });
+
+        // Toggle current accordion
+        if (willOpen) {
+          submenu.classList.add("open");
+          btn.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
+        } else {
+          submenu.classList.remove("open");
+          btn.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        }
       });
     }
-  }
-  setupMobileAccordion("mobileRegBtn", "mobileRegSubmenu");
-  setupMobileAccordion("mobileTestPaperBtn", "mobileTestPaperSubmenu");
+  });
 
   // Close mobile drawer when clicking on any subnav link
   const mobileSubnavLinks = document.querySelectorAll(".mobile-subnav-link");
@@ -141,6 +198,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const openDemoButtons = document.querySelectorAll(".open-demo-modal");
 
   window.openDemoModal = function (courseName) {
+    if (typeof closeMobileMenu === "function") {
+      closeMobileMenu();
+    }
     if (courseName && modalCourseSelect) {
       for (let i = 0; i < modalCourseSelect.options.length; i++) {
         if (modalCourseSelect.options[i].text.toLowerCase().includes(courseName.toLowerCase()) ||
