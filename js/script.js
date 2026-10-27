@@ -35,17 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Mobile Drawer Registration Accordion Toggle
-  const mobileRegBtn = document.getElementById("mobileRegBtn");
-  const mobileRegSubmenu = document.getElementById("mobileRegSubmenu");
-  if (mobileRegBtn && mobileRegSubmenu) {
-    mobileRegBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = mobileRegSubmenu.classList.toggle("open");
-      mobileRegBtn.classList.toggle("open", isOpen);
-      mobileRegBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
+  // Mobile Drawer Accordion Toggles (Registration & Test Paper)
+  function setupMobileAccordion(btnId, submenuId) {
+    const btn = document.getElementById(btnId);
+    const submenu = document.getElementById(submenuId);
+    if (btn && submenu) {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = submenu.classList.toggle("open");
+        btn.classList.toggle("open", isOpen);
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
   }
+  setupMobileAccordion("mobileRegBtn", "mobileRegSubmenu");
+  setupMobileAccordion("mobileTestPaperBtn", "mobileTestPaperSubmenu");
 
   // Close mobile drawer when clicking on any subnav link
   const mobileSubnavLinks = document.querySelectorAll(".mobile-subnav-link");
@@ -55,23 +59,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Desktop Registration Dropdown Toggle for click/touch devices
-  const desktopRegDropdown = document.getElementById("desktopRegDropdown");
-  const regDropdownBtn = document.getElementById("regDropdownBtn");
-  if (desktopRegDropdown && regDropdownBtn) {
-    regDropdownBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const isOpen = desktopRegDropdown.classList.toggle("open");
-      regDropdownBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
+  // Desktop Dropdown Toggles for click/touch devices (Registration & Test Paper)
+  const dropdownPairs = [
+    { dropdownId: "desktopRegDropdown", btnId: "regDropdownBtn" },
+    { dropdownId: "desktopTestPaperDropdown", btnId: "testPaperDropdownBtn" }
+  ];
 
-    document.addEventListener("click", (e) => {
-      if (!desktopRegDropdown.contains(e.target)) {
-        desktopRegDropdown.classList.remove("open");
-        regDropdownBtn.setAttribute("aria-expanded", "false");
+  dropdownPairs.forEach(({ dropdownId, btnId }) => {
+    const dropdown = document.getElementById(dropdownId);
+    const btn = document.getElementById(btnId);
+    if (dropdown && btn) {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Close other dropdowns
+        dropdownPairs.forEach((other) => {
+          if (other.dropdownId !== dropdownId) {
+            const otherEl = document.getElementById(other.dropdownId);
+            const otherBtn = document.getElementById(other.btnId);
+            if (otherEl) otherEl.classList.remove("open");
+            if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+        const isOpen = dropdown.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    dropdownPairs.forEach(({ dropdownId, btnId }) => {
+      const dropdown = document.getElementById(dropdownId);
+      const btn = document.getElementById(btnId);
+      if (dropdown && !dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+        if (btn) btn.setAttribute("aria-expanded", "false");
       }
     });
-  }
+  });
 
   // ===========================================================================
   // 2. Sticky Header & Active Nav ScrollSpy
